@@ -1,0 +1,83 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - img "Crochet Blog Logo" [ref=e5]
+      - navigation [ref=e6]:
+        - link "Patterns" [ref=e7] [cursor=pointer]:
+          - /url: "#latest-patterns"
+        - link "About Us" [ref=e8] [cursor=pointer]:
+          - /url: "#about"
+        - link "Contact" [ref=e9] [cursor=pointer]:
+          - /url: "#contact"
+      - link "Support me" [ref=e11] [cursor=pointer]:
+        - /url: https://crochetmakerr.gumroad.com/
+  - main [ref=e12]:
+    - main [ref=e13]
+  - contentinfo [ref=e23]:
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - text: Crochet ART
+          - paragraph [ref=e27]: Premium crochet patterns, tutorials, and resources for enthusiasts of all skill levels.
+        - generic [ref=e28]:
+          - heading "Products" [level=4] [ref=e29]
+          - list [ref=e30]:
+            - listitem [ref=e31]:
+              - link "Patterns" [ref=e32] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e33]:
+              - link "Tutorials" [ref=e34] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e35]:
+              - link "Supplies" [ref=e36] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e37]:
+              - link "Magazine" [ref=e38] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e39]:
+          - heading "Company" [level=4] [ref=e40]
+          - list [ref=e41]:
+            - listitem [ref=e42]:
+              - link "About Us" [ref=e43] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e44]:
+              - link "Careers" [ref=e45] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e46]:
+              - link "Press" [ref=e47] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e48]:
+              - link "Contact" [ref=e49] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e50]:
+          - heading "Resources" [level=4] [ref=e51]
+          - list [ref=e52]:
+            - listitem [ref=e53]:
+              - link "Help Center" [ref=e54] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e55]:
+              - link "Terms of Use" [ref=e56] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e57]:
+              - link "Privacy Policy" [ref=e58] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e59]:
+              - link "Cookies" [ref=e60] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e61]:
+          - heading "Social" [level=4] [ref=e62]
+          - generic [ref=e63]:
+            - link "Twitter" [ref=e64] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e65]: Twitter
+            - link "Pinterest" [ref=e66] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e67]: Pinterest
+      - generic [ref=e68]:
+        - paragraph [ref=e69]: © 2026 Hook & Loop. All rights reserved.
+        - generic [ref=e70]:
+          - link "Privacy Policy" [ref=e71] [cursor=pointer]:
+            - /url: "#"
+          - link "Terms of Use" [ref=e72] [cursor=pointer]:
+            - /url: "#"
+  - alert [ref=e73]

@@ -1,0 +1,11 @@
+- generic [active] [ref=e1]:
+  - heading "Page title" [level=1] [ref=e2]
+  - generic [ref=e4]: SLOT top (728x90 unit7)
+  - generic [ref=e6]: SLOT mobile (320x50 unit3)
+  - generic [ref=e8]: SLOT after-intro (container banner unit2)
+  - generic [ref=e10]: SLOT instructions-top (468x60 unit6)
+  - paragraph [ref=e11]: Some pattern instructions text here.
+  - generic [ref=e13]: SLOT mid (300x250 unit4)
+  - generic [ref=e15]: SLOT sidebar (160x300 unit5)
+  - generic [ref=e17]: SLOT bottom (468? no - social bar unit1 + nothing else)
+  - contentinfo [ref=e18]: FOOTER END

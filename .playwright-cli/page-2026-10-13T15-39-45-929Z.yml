@@ -1,0 +1,283 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - img "Crochet Blog Logo" [ref=e5]
+      - navigation [ref=e6]:
+        - link "Patterns" [ref=e7] [cursor=pointer]:
+          - /url: "#latest-patterns"
+        - link "About Us" [ref=e8] [cursor=pointer]:
+          - /url: "#about"
+        - link "Contact" [ref=e9] [cursor=pointer]:
+          - /url: "#contact"
+      - link "Support me" [ref=e11] [cursor=pointer]:
+        - /url: https://crochetmakerr.gumroad.com/
+  - main [ref=e12]:
+    - main [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e16]:
+          - generic [ref=e17]:
+            - heading "Your Next Favorite Crochet Project Starts Here" [level=1] [ref=e18]
+            - paragraph [ref=e19]: Discover easy and adorable crochet patterns for every style. From cute animals to charming accessories, find step-by-step patterns that make crocheting fun, simple, and enjoyable for everyone.
+          - img "Finished crochet project" [ref=e21]
+        - generic [ref=e23]:
+          - img "Crochet project" [ref=e25]
+          - generic [ref=e26]:
+            - heading "About Our Crochet Blog" [level=2] [ref=e27]
+            - paragraph [ref=e28]: Welcome to our little crochet corner! Here, you'll find easy and adorable crochet patterns for all skill levels, from cute handmade animals to beautiful accessories and more. Our goal is to make crocheting fun, simple, and inspiring, one stitch at a time. Whether you're a beginner or an experienced crocheter, there's always something lovely to create!
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - heading "Latest Patterns" [level=2] [ref=e32]
+            - generic [ref=e33]: 5 patterns
+          - generic [ref=e34]:
+            - link "Cute Dog Amigurumi Crochet Pattern animals Beginner Cute Dog Amigurumi Crochet Pattern Make your own wrinkly, lovable English Bulldog with this step-by-step amigurumi pattern. The dog has black and white patches, a folded face, floppy ears, and tiny crocheted toes. It’s a charming gift or a keepsake for dog lovers. crochet art Mar 15, 2026" [ref=e35] [cursor=pointer]:
+              - /url: /patterns/doggy-crochet
+              - generic [ref=e36]:
+                - img "Cute Dog Amigurumi Crochet Pattern" [ref=e37]
+                - generic [ref=e38]: animals
+              - generic [ref=e39]:
+                - generic [ref=e41]: Beginner
+                - heading "Cute Dog Amigurumi Crochet Pattern" [level=3] [ref=e42]
+                - paragraph [ref=e43]: Make your own wrinkly, lovable English Bulldog with this step-by-step amigurumi pattern. The dog has black and white patches, a folded face, floppy ears, and tiny crocheted toes. It’s a charming gift or a keepsake for dog lovers.
+                - generic [ref=e44]:
+                  - generic [ref=e45]:
+                    - img [ref=e46]
+                    - text: crochet art
+                  - generic [ref=e49]:
+                    - img [ref=e50]
+                    - text: Mar 15, 2026
+            - 'link "Big Spooky Pumpkin Crochet Pattern Beginne halloween Beginner Big Spooky Pumpkin Crochet Pattern Beginne This is a cozy Halloween amigurumi pumpkin with a jack-o’-lantern face: black triangle eyes, a triangle nose and a jagged grin. It has a curly green stem, a leaf and a spiral vine. It is worked in the round with simple stitches and no colour changes in the body, so it suits confident beginners. crochet art Feb 28, 2025" [ref=e52] [cursor=pointer]':
+              - /url: /patterns/spooky-pumpkin
+              - generic [ref=e53]:
+                - img "Big Spooky Pumpkin Crochet Pattern Beginne" [ref=e54]
+                - generic [ref=e55]: halloween
+              - generic [ref=e56]:
+                - generic [ref=e58]: Beginner
+                - heading "Big Spooky Pumpkin Crochet Pattern Beginne" [level=3] [ref=e59]
+                - paragraph [ref=e60]: "This is a cozy Halloween amigurumi pumpkin with a jack-o’-lantern face: black triangle eyes, a triangle nose and a jagged grin. It has a curly green stem, a leaf and a spiral vine. It is worked in the round with simple stitches and no colour changes in the body, so it suits confident beginners."
+                - generic [ref=e61]:
+                  - generic [ref=e62]:
+                    - img [ref=e63]
+                    - text: crochet art
+                  - generic [ref=e66]:
+                    - img [ref=e67]
+                    - text: Feb 28, 2025
+            - link "Spider Hero Girl Crochet Amigurumi Pattern heros Intermediate Spider Hero Girl Crochet Amigurumi Pattern Crochet your own cuddly spider hero in soft white chenille yarn, with a big hood, felt eyes, and a hot pink spider emblem. This beginner-friendly PDF pattern makes an 8-inch plush you can finish in about 4 to 5 hours. @crochet art Feb 27, 2026" [ref=e69] [cursor=pointer]:
+              - /url: /patterns/spider-hero
+              - generic [ref=e70]:
+                - img "Spider Hero Girl Crochet Amigurumi Pattern" [ref=e71]
+                - generic [ref=e72]: heros
+              - generic [ref=e73]:
+                - generic [ref=e75]: Intermediate
+                - heading "Spider Hero Girl Crochet Amigurumi Pattern" [level=3] [ref=e76]
+                - paragraph [ref=e77]: Crochet your own cuddly spider hero in soft white chenille yarn, with a big hood, felt eyes, and a hot pink spider emblem. This beginner-friendly PDF pattern makes an 8-inch plush you can finish in about 4 to 5 hours.
+                - generic [ref=e78]:
+                  - generic [ref=e79]:
+                    - img [ref=e80]
+                    - text: "@crochet art"
+                  - generic [ref=e83]:
+                    - img [ref=e84]
+                    - text: Feb 27, 2026
+            - link "IPhone 18 pro max case crochet Pattern phones Intermediate IPhone 18 pro max case crochet Pattern Create your own handmade crochet phone case with this easy-to-follow digital pattern! @crochet art Jan 22, 2024" [ref=e86] [cursor=pointer]:
+              - /url: /patterns/iphone-case
+              - generic [ref=e87]:
+                - img "IPhone 18 pro max case crochet Pattern" [ref=e88]
+                - generic [ref=e89]: phones
+              - generic [ref=e90]:
+                - generic [ref=e92]: Intermediate
+                - heading "IPhone 18 pro max case crochet Pattern" [level=3] [ref=e93]
+                - paragraph [ref=e94]: Create your own handmade crochet phone case with this easy-to-follow digital pattern!
+                - generic [ref=e95]:
+                  - generic [ref=e96]:
+                    - img [ref=e97]
+                    - text: "@crochet art"
+                  - generic [ref=e100]:
+                    - img [ref=e101]
+                    - text: Jan 22, 2024
+            - 'link "Crochet Zoo Animals Pattern: Tiger, Zebra & Hippo Amigurumi Animals Intermediate Crochet Zoo Animals Pattern: Tiger, Zebra & Hippo Amigurumi Make three cuddly zoo animals with this step-by-step amigurumi e-book: a tiger, a zebra, and a hippo. Each one is about 20 cm tall and worked in continuous rounds with a 2.0 mm hook. crochet art 2026-09-01" [ref=e103] [cursor=pointer]':
+              - /url: /patterns/crochet-animal
+              - generic [ref=e104]:
+                - 'img "Crochet Zoo Animals Pattern: Tiger, Zebra & Hippo Amigurumi" [ref=e105]'
+                - generic [ref=e106]: Animals
+              - generic [ref=e107]:
+                - generic [ref=e109]: Intermediate
+                - 'heading "Crochet Zoo Animals Pattern: Tiger, Zebra & Hippo Amigurumi" [level=3] [ref=e110]'
+                - paragraph [ref=e111]: "Make three cuddly zoo animals with this step-by-step amigurumi e-book: a tiger, a zebra, and a hippo. Each one is about 20 cm tall and worked in continuous rounds with a 2.0 mm hook."
+                - generic [ref=e112]:
+                  - generic [ref=e113]:
+                    - img [ref=e114]
+                    - text: crochet art
+                  - generic [ref=e117]:
+                    - img [ref=e118]
+                    - text: 2026-09-01
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - heading "Easy Patterns for Beginners" [level=2] [ref=e122]
+            - generic [ref=e123]: 2 patterns
+          - generic [ref=e124]:
+            - link "Cute Dog Amigurumi Crochet Pattern animals Beginner Cute Dog Amigurumi Crochet Pattern Make your own wrinkly, lovable English Bulldog with this step-by-step amigurumi pattern. The dog has black and white patches, a folded face, floppy ears, and tiny crocheted toes. It’s a charming gift or a keepsake for dog lovers. crochet art Mar 15, 2026" [ref=e125] [cursor=pointer]:
+              - /url: /patterns/doggy-crochet
+              - generic [ref=e126]:
+                - img "Cute Dog Amigurumi Crochet Pattern" [ref=e127]
+                - generic [ref=e128]: animals
+              - generic [ref=e129]:
+                - generic [ref=e131]: Beginner
+                - heading "Cute Dog Amigurumi Crochet Pattern" [level=3] [ref=e132]
+                - paragraph [ref=e133]: Make your own wrinkly, lovable English Bulldog with this step-by-step amigurumi pattern. The dog has black and white patches, a folded face, floppy ears, and tiny crocheted toes. It’s a charming gift or a keepsake for dog lovers.
+                - generic [ref=e134]:
+                  - generic [ref=e135]:
+                    - img [ref=e136]
+                    - text: crochet art
+                  - generic [ref=e139]:
+                    - img [ref=e140]
+                    - text: Mar 15, 2026
+            - 'link "Big Spooky Pumpkin Crochet Pattern Beginne halloween Beginner Big Spooky Pumpkin Crochet Pattern Beginne This is a cozy Halloween amigurumi pumpkin with a jack-o’-lantern face: black triangle eyes, a triangle nose and a jagged grin. It has a curly green stem, a leaf and a spiral vine. It is worked in the round with simple stitches and no colour changes in the body, so it suits confident beginners. crochet art Feb 28, 2025" [ref=e142] [cursor=pointer]':
+              - /url: /patterns/spooky-pumpkin
+              - generic [ref=e143]:
+                - img "Big Spooky Pumpkin Crochet Pattern Beginne" [ref=e144]
+                - generic [ref=e145]: halloween
+              - generic [ref=e146]:
+                - generic [ref=e148]: Beginner
+                - heading "Big Spooky Pumpkin Crochet Pattern Beginne" [level=3] [ref=e149]
+                - paragraph [ref=e150]: "This is a cozy Halloween amigurumi pumpkin with a jack-o’-lantern face: black triangle eyes, a triangle nose and a jagged grin. It has a curly green stem, a leaf and a spiral vine. It is worked in the round with simple stitches and no colour changes in the body, so it suits confident beginners."
+                - generic [ref=e151]:
+                  - generic [ref=e152]:
+                    - img [ref=e153]
+                    - text: crochet art
+                  - generic [ref=e156]:
+                    - img [ref=e157]
+                    - text: Feb 28, 2025
+        - generic [ref=e159]:
+          - generic [ref=e160]:
+            - heading "Popular Patterns" [level=2] [ref=e161]
+            - generic [ref=e162]: 3 patterns
+          - generic [ref=e163]:
+            - link "Cute Dog Amigurumi Crochet Pattern animals Beginner Cute Dog Amigurumi Crochet Pattern Make your own wrinkly, lovable English Bulldog with this step-by-step amigurumi pattern. The dog has black and white patches, a folded face, floppy ears, and tiny crocheted toes. It’s a charming gift or a keepsake for dog lovers. crochet art Mar 15, 2026" [ref=e164] [cursor=pointer]:
+              - /url: /patterns/doggy-crochet
+              - generic [ref=e165]:
+                - img "Cute Dog Amigurumi Crochet Pattern" [ref=e166]
+                - generic [ref=e167]: animals
+              - generic [ref=e168]:
+                - generic [ref=e170]: Beginner
+                - heading "Cute Dog Amigurumi Crochet Pattern" [level=3] [ref=e171]
+                - paragraph [ref=e172]: Make your own wrinkly, lovable English Bulldog with this step-by-step amigurumi pattern. The dog has black and white patches, a folded face, floppy ears, and tiny crocheted toes. It’s a charming gift or a keepsake for dog lovers.
+                - generic [ref=e173]:
+                  - generic [ref=e174]:
+                    - img [ref=e175]
+                    - text: crochet art
+                  - generic [ref=e178]:
+                    - img [ref=e179]
+                    - text: Mar 15, 2026
+            - 'link "Big Spooky Pumpkin Crochet Pattern Beginne halloween Beginner Big Spooky Pumpkin Crochet Pattern Beginne This is a cozy Halloween amigurumi pumpkin with a jack-o’-lantern face: black triangle eyes, a triangle nose and a jagged grin. It has a curly green stem, a leaf and a spiral vine. It is worked in the round with simple stitches and no colour changes in the body, so it suits confident beginners. crochet art Feb 28, 2025" [ref=e181] [cursor=pointer]':
+              - /url: /patterns/spooky-pumpkin
+              - generic [ref=e182]:
+                - img "Big Spooky Pumpkin Crochet Pattern Beginne" [ref=e183]
+                - generic [ref=e184]: halloween
+              - generic [ref=e185]:
+                - generic [ref=e187]: Beginner
+                - heading "Big Spooky Pumpkin Crochet Pattern Beginne" [level=3] [ref=e188]
+                - paragraph [ref=e189]: "This is a cozy Halloween amigurumi pumpkin with a jack-o’-lantern face: black triangle eyes, a triangle nose and a jagged grin. It has a curly green stem, a leaf and a spiral vine. It is worked in the round with simple stitches and no colour changes in the body, so it suits confident beginners."
+                - generic [ref=e190]:
+                  - generic [ref=e191]:
+                    - img [ref=e192]
+                    - text: crochet art
+                  - generic [ref=e195]:
+                    - img [ref=e196]
+                    - text: Feb 28, 2025
+            - link "Spider Hero Girl Crochet Amigurumi Pattern heros Intermediate Spider Hero Girl Crochet Amigurumi Pattern Crochet your own cuddly spider hero in soft white chenille yarn, with a big hood, felt eyes, and a hot pink spider emblem. This beginner-friendly PDF pattern makes an 8-inch plush you can finish in about 4 to 5 hours. @crochet art Feb 27, 2026" [ref=e198] [cursor=pointer]:
+              - /url: /patterns/spider-hero
+              - generic [ref=e199]:
+                - img "Spider Hero Girl Crochet Amigurumi Pattern" [ref=e200]
+                - generic [ref=e201]: heros
+              - generic [ref=e202]:
+                - generic [ref=e204]: Intermediate
+                - heading "Spider Hero Girl Crochet Amigurumi Pattern" [level=3] [ref=e205]
+                - paragraph [ref=e206]: Crochet your own cuddly spider hero in soft white chenille yarn, with a big hood, felt eyes, and a hot pink spider emblem. This beginner-friendly PDF pattern makes an 8-inch plush you can finish in about 4 to 5 hours.
+                - generic [ref=e207]:
+                  - generic [ref=e208]:
+                    - img [ref=e209]
+                    - text: "@crochet art"
+                  - generic [ref=e212]:
+                    - img [ref=e213]
+                    - text: Feb 27, 2026
+        - generic [ref=e216]:
+          - heading "Contact Us" [level=2] [ref=e217]
+          - paragraph [ref=e218]: Got questions or feedback? Drop us a line at info@crochetblog.com
+          - generic [ref=e219]:
+            - generic [ref=e220]:
+              - generic [ref=e221]: Name
+              - textbox "Your name" [ref=e222]
+            - generic [ref=e223]:
+              - generic [ref=e224]: Email
+              - textbox "your@email.com" [ref=e225]
+            - generic [ref=e226]:
+              - generic [ref=e227]: Message
+              - textbox "Write your message here..." [ref=e228]
+            - button "Send Message" [ref=e229]
+  - contentinfo [ref=e230]:
+    - generic [ref=e231]:
+      - generic [ref=e232]:
+        - generic [ref=e233]:
+          - text: Crochet ART
+          - paragraph [ref=e234]: Premium crochet patterns, tutorials, and resources for enthusiasts of all skill levels.
+        - generic [ref=e235]:
+          - heading "Products" [level=4] [ref=e236]
+          - list [ref=e237]:
+            - listitem [ref=e238]:
+              - link "Patterns" [ref=e239] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e240]:
+              - link "Tutorials" [ref=e241] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e242]:
+              - link "Supplies" [ref=e243] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e244]:
+              - link "Magazine" [ref=e245] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e246]:
+          - heading "Company" [level=4] [ref=e247]
+          - list [ref=e248]:
+            - listitem [ref=e249]:
+              - link "About Us" [ref=e250] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e251]:
+              - link "Careers" [ref=e252] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e253]:
+              - link "Press" [ref=e254] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e255]:
+              - link "Contact" [ref=e256] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e257]:
+          - heading "Resources" [level=4] [ref=e258]
+          - list [ref=e259]:
+            - listitem [ref=e260]:
+              - link "Help Center" [ref=e261] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e262]:
+              - link "Terms of Use" [ref=e263] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e264]:
+              - link "Privacy Policy" [ref=e265] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e266]:
+              - link "Cookies" [ref=e267] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e268]:
+          - heading "Social" [level=4] [ref=e269]
+          - generic [ref=e270]:
+            - link "Twitter" [ref=e271] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e272]: Twitter
+            - link "Pinterest" [ref=e273] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e274]: Pinterest
+      - generic [ref=e275]:
+        - paragraph [ref=e276]: © 2026 Hook & Loop. All rights reserved.
+        - generic [ref=e277]:
+          - link "Privacy Policy" [ref=e278] [cursor=pointer]:
+            - /url: "#"
+          - link "Terms of Use" [ref=e279] [cursor=pointer]:
+            - /url: "#"
+  - alert [ref=e280]
