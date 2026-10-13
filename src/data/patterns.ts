@@ -116,4 +116,4 @@ export const samplePatterns: CrochetPattern[] = [
     otherImgs: ["/pattern imgs/10halloween/1.jpg", "/pattern imgs/10halloween/2.jpg", "/pattern imgs/10halloween/3.jpg","/pattern imgs/10halloween/4.jpg", "/pattern imgs/10halloween/5.jpg", "/pattern imgs/10halloween/6.jpg", "/pattern imgs/10halloween/7.jpg", "/pattern imgs/10halloween/8.jpg", "/pattern imgs/10halloween/9.jpg", "/pattern imgs/10halloween/10.jpg"],
     buyUrl: "https://crochetmakerr.gumroad.com/l/10halloweenCrochets",
   },
-];
+];//
