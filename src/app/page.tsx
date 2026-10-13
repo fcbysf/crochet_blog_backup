@@ -61,7 +61,7 @@ export default function Home() {
         </section>
 
         {/* Banner 320x50 (Adsterra unit 3 – mobile banner) */}
-        <div data-unit-id="banner-320x50" className="block sm:hidden mb-4"></div>
+        <div data-unit-id="banner-320x50" className="block mb-4 w-full"></div>
 
         {/* Pattern Sections - rendered from the PatternsContext */}
         <section id="latest-patterns" className="mb-16">
@@ -128,10 +128,11 @@ export default function Home() {
                 Send Message
               </button>
             </form>
+            <div data-unit-id="skyscraper-160x300" className="flex justify-center m-8"></div>
           </div>
         </section>
 
-        <div data-unit-id="leader-468x60" className="hidden sm:block mb-8"></div>
+        <div data-unit-id="leader-468x60" className=" mb-8"></div>
       </div>
     </main>
   );
