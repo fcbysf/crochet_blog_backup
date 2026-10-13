@@ -1,5 +1,4 @@
 import { PatternGallery } from "@/components/PatternGallery";
-import { AdInjector } from "@/components/ads/ad-injector";
 
 export default function Home() {
   return (
@@ -134,8 +133,6 @@ export default function Home() {
 
         <div data-unit-id="leader-468x60" className="hidden sm:block mb-8"></div>
       </div>
-
-      <AdInjector />
     </main>
   );
 };

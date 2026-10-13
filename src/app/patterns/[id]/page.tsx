@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, Download, Heart, X } from "lucide-react";
 import { usePatterns } from "@/context/PatternsContext";
 import { PatternCard } from "@/components/PatternCard";
-import { AdInjector } from "@/components/ads/ad-injector";
 
 const FALLBACK_IMG = "/placeholder-400x300.svg";
 
@@ -206,6 +205,8 @@ function PatternDetailContent() {
 
         {/* Rectangle 300x250 (Adsterra unit 4) */}
         <div data-unit-id="rect-300x250" className="hidden sm:block mb-6"></div>
+        <div data-unit-id="container-banner" ></div>
+
 
         {/* Similar patterns */}
         {similar.length > 0 && (
@@ -261,8 +262,6 @@ function PatternDetailContent() {
         </div>
       )}
 
-      {/* Ad injection – initializes all seven ad units (guarded against double-init) */}
-      <AdInjector />
     </main>
   );
 }

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { AdInjector } from "@/components/ads/ad-injector";
 import { PatternsProvider } from "@/context/PatternsContext";
 
 export default function RootLayout({
@@ -12,6 +13,7 @@ export default function RootLayout({
     <PatternsProvider>
       <Navigation />
       <main className="flex-1">{children}</main>
+      <AdInjector />
       <Footer />
     </PatternsProvider>
   );

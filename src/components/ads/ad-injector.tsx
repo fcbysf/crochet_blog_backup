@@ -1,7 +1,9 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { adUnits } from "./ad-units";
 
 const INJECTION_ORDER = [
+  'popunder',
   'social-bar',
   'container-banner',
   'banner-320x50',
@@ -29,7 +31,8 @@ async function waitForExternalScript(
   src: string,
   container: HTMLElement,
   timeoutMs = 5000,
-  isAsync = false
+  isAsync = false,
+  attributes?: Record<string, string>
 ): Promise<boolean> {
   return new Promise<boolean>((resolve) => {
     const timeout = setTimeout(() => {
@@ -41,6 +44,9 @@ async function waitForExternalScript(
 
     const scr = document.createElement('script');
     scr.async = isAsync;
+    Object.entries(attributes ?? {}).forEach(([name, value]) => {
+      scr.setAttribute(name, value);
+    });
     scr.src = src;
     scr.addEventListener('load', () => {
       clearTimeout(timeout);
@@ -57,6 +63,8 @@ async function waitForExternalScript(
 }
 
 export function AdInjector() {
+  const { pathname } = useLocation();
+
   useEffect(() => {
     // Set when this page unmounts (client-side navigation or StrictMode
     // re-run) so an in-flight loop stops instead of injecting into another
@@ -70,6 +78,16 @@ export function AdInjector() {
 
         const unit = adUnits.find((u) => u.id === unitId);
         if (!unit) continue;
+
+        if (unitId === 'popunder') {
+          if (!document.querySelector(`script[src="${unit.scriptSrc}"]`)) {
+            const script = document.createElement('script');
+            script.setAttribute('data-cfasync', 'false');
+            script.src = unit.scriptSrc!;
+            document.body.appendChild(script);
+          }
+          continue;
+        }
 
         // Find the wrapper div that already exists in the current page DOM.
         const wrapper = document.querySelector(
@@ -129,7 +147,8 @@ export function AdInjector() {
               unit.scriptSrc!,
               wrapper,
               5000,
-              true // official snippet loads this unit's script with async
+              true, // official snippet loads this unit's script with async
+              unit.attributes
             );
             if (success) {
               wrapper.setAttribute('data-loaded', 'true');
@@ -160,7 +179,7 @@ export function AdInjector() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }
