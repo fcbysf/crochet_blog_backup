@@ -13,6 +13,12 @@ const INJECTION_ORDER = [
   'leader-728x90',
 ];
 
+function reportAdScriptError(src: string) {
+  window.dispatchEvent(
+    new CustomEvent('ad-resource-error', { detail: { src } })
+  );
+}
+
 // Sets window.atOptions inline by injecting a <script> tag into the wrapper.
 // The script runs synchronously when appended; we keep it in the DOM.
 function setAtOptionsInline(code: string, container: HTMLElement) {
@@ -55,6 +61,7 @@ async function waitForExternalScript(
     });
     scr.addEventListener('error', () => {
       clearTimeout(timeout);
+      reportAdScriptError(src);
       container.removeChild(scr);
       resolve(false);
     });
@@ -84,6 +91,7 @@ export function AdInjector() {
             const script = document.createElement('script');
             script.setAttribute('data-cfasync', 'false');
             script.src = unit.scriptSrc!;
+            script.addEventListener('error', () => reportAdScriptError(script.src));
             document.body.appendChild(script);
           }
           continue;
@@ -119,6 +127,7 @@ export function AdInjector() {
             scr.async = false;
             scr.setAttribute('data-cfasync', 'false');
             scr.src = unit.scriptSrc!;
+            scr.addEventListener('error', () => reportAdScriptError(scr.src));
             wrapper.appendChild(scr);
             // Social Bar self‑initialises; mark loaded.
             wrapper.setAttribute('data-loaded', 'true');

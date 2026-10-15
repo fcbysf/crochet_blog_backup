@@ -5,6 +5,7 @@ import ContactPage from "@/app/contact/page";
 import Home from "@/app/page";
 import PatternDetailPage from "@/app/patterns/[id]/page";
 import RootLayout from "@/app/layout";
+import AntiAdBlock from "@/components/AntiAdBlock";
 
 function RouteScrollRestoration() {
   const { pathname, hash } = useLocation();
@@ -22,15 +23,18 @@ function RouteScrollRestoration() {
 
 export default function App() {
   return (
-    <RootLayout>
-      <RouteScrollRestoration />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/patterns/:id" element={<PatternDetailPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </RootLayout>
+    <>
+      <AntiAdBlock />
+      <RootLayout>
+        <RouteScrollRestoration />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/patterns/:id" element={<PatternDetailPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </RootLayout>
+    </>
   );
 }
