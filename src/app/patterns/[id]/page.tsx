@@ -73,8 +73,11 @@ function PatternDetailContent() {
   };
 
   return (
-    <main className="pt-20 pb-12">
+    <main className=" pb-12">
       <div className="mx-auto max-w-7xl px-6">
+        <div data-unit-id="leader-468x60" className="mobile-leaderboard mobile-leaderboard-568 block " />
+        <div data-unit-id="leader-468x60" className="mobile-leaderboard mobile-leaderboard-568 block " />
+
         {/* Back link */}
         <Link
           to="/"
@@ -85,14 +88,14 @@ function PatternDetailContent() {
         </Link>
 
         {/* Social Bar (Adsterra unit 1) – sticky, page-level ad */}
-        <div data-unit-id="social-bar" className="hidden sm:block sticky top-0 z-40"></div>
+        <div data-unit-id="social-bar" className=" sm:block sticky top-0 z-40"></div>
 
         {/* Hero: main image left, details + related images right */}
-        <section className="mb-14 grid gap-8 lg:grid-cols-2 lg:items-stretch">
+        <section className="mb-14 grid w-full min-w-0 gap-8 lg:grid-cols-2 lg:items-stretch">
           <button
             type="button"
             onClick={() => openLightbox(pattern.mainImg)}
-            className="relative aspect-[4/3] w-full cursor-zoom-in overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 lg:aspect-auto lg:h-full lg:min-h-[480px]"
+            className="relative aspect-[4/3] w-full min-w-0 cursor-zoom-in overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 lg:aspect-auto lg:h-full lg:min-h-[480px]"
             aria-label="Enlarge main image"
           >
             <img
@@ -105,7 +108,9 @@ function PatternDetailContent() {
             />
           </button>
 
-          <div className="flex flex-col gap-6">
+          <div data-unit-id="skyscraper-160x300" className="mobile-inline-ad block w-full min-w-0 sm:hidden" />
+
+          <div className="flex min-w-0 flex-col gap-6">
             <div className="flex flex-col gap-4">
               <span className="inline-flex w-fit items-center rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-medium text-zinc-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400">
                 {pattern.category}
@@ -180,7 +185,7 @@ function PatternDetailContent() {
         <div data-unit-id="banner-320x50" className="block sm:hidden mb-4"></div>
 
         {/* Support me */}
-        <div className="mt-6 flex flex-wrap justify-center gap-4">
+        <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
           {pattern.buyUrl && (
             <a
               href={pattern.buyUrl}
@@ -191,6 +196,9 @@ function PatternDetailContent() {
               premium PDF pattern
             </a>
           )}
+
+          <div data-unit-id="rect-300x250" className="block w-full sm:hidden" />
+          <div data-unit-id="social-bar" className="block w-full sm:hidden" />
 
           <a
             href={"https://crochetmakerr.gumroad.com/"}
@@ -205,7 +213,7 @@ function PatternDetailContent() {
         </div>
 
         {/* Rectangle 300x250 (Adsterra unit 4) */}
-        <div data-unit-id="rect-300x250" className="hidden sm:block mb-6"></div>
+        <div data-unit-id="rect-300x250" className="mb-6"></div>
 
         {/* Similar patterns */}
         {similar.length > 0 && (
@@ -222,7 +230,7 @@ function PatternDetailContent() {
         )}
 
         {/* Skyscraper 160x300 (Adsterra unit 5) */}
-        <div data-unit-id="skyscraper-160x300" className="mb-8"></div>
+        <div data-unit-id="skyscraper-160x300" className="hidden sm:block mb-8"></div>
 
         {/* Leaderboard 468x60 (Adsterra unit 6 – desktop, needs 468px width) */}
         <div data-unit-id="leader-468x60" className="hidden sm:block mb-8"></div>

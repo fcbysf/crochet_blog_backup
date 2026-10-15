@@ -98,89 +98,82 @@ export function AdInjector() {
         }
 
         // Find the wrapper div that already exists in the current page DOM.
-        const wrapper = document.querySelector(
-          `div[data-unit-id="${unitId}"]`
-        ) as HTMLElement | null;
+        const wrappers = Array.from(
+          document.querySelectorAll<HTMLElement>(`div[data-unit-id="${unitId}"]`)
+        ).filter((candidate) => candidate.getClientRects().length > 0);
         // Unit not placed on this page (pages embed a subset of the units).
-        if (!wrapper) continue;
+        if (wrappers.length === 0) continue;
 
-        if (
-          (unitId === 'social-bar' || unitId === 'rect-300x250') &&
-          window.matchMedia('(max-width: 639px)').matches
-        ) {
-          continue;
-        }
+        for (const wrapper of wrappers) {
+          if (cancelled) return;
 
-        // Duplicate-init guard: never append this unit's loader script twice
-        // into the same wrapper (StrictMode / navigation edge cases).
-        if (
-          unit.scriptSrc &&
-          wrapper.querySelector(`script[src="${unit.scriptSrc}"]`)
-        ) {
-          continue;
-        }
-
-        try {
-          if (unit.isSocialBar) {
-            // Social Bar: Adsterra's own script; append to wrapper.
-            const scr = document.createElement('script');
-            scr.async = false;
-            scr.setAttribute('data-cfasync', 'false');
-            scr.src = unit.scriptSrc!;
-            scr.addEventListener('error', () => reportAdScriptError(scr.src));
-            wrapper.appendChild(scr);
-            // Social Bar self‑initialises; mark loaded.
-            wrapper.setAttribute('data-loaded', 'true');
+          // Duplicate-init guard: never append this unit's loader script twice
+          // into the same wrapper (StrictMode / navigation edge cases).
+          if (
+            unit.scriptSrc &&
+            wrapper.querySelector(`script[src="${unit.scriptSrc}"]`)
+          ) {
             continue;
           }
 
-          if (unit.containerId) {
-            // Official Adsterra snippet order: the container div must exist
-            // first, then the loader script (async). The script derives its
-            // container id as "container-<placementKey>" and finds it via
-            // document.getElementById, so the div is created before loading.
-            let containerDiv = wrapper.querySelector(
-              `#${unit.containerId}`
-            ) as HTMLDivElement | null;
-            if (!containerDiv) {
-              containerDiv = document.createElement('div');
-              containerDiv.id = unit.containerId;
-              containerDiv.style.width = '100%';
-              containerDiv.style.height = '250px';
-              wrapper.appendChild(containerDiv);
+          try {
+            if (unit.isSocialBar) {
+              // Social Bar: Adsterra's own script; append to wrapper.
+              const scr = document.createElement('script');
+              scr.async = false;
+              scr.setAttribute('data-cfasync', 'false');
+              scr.src = unit.scriptSrc!;
+              scr.addEventListener('error', () => reportAdScriptError(scr.src));
+              wrapper.appendChild(scr);
+              // Social Bar self-initialises; mark loaded.
+              wrapper.setAttribute('data-loaded', 'true');
+              continue;
             }
 
-            // Actually load the unit's script (async, as in the official
-            // code) and wait for its real load event instead of guessing.
+            if (unit.containerId) {
+              // Official Adsterra snippet order: the container div must exist
+              // first, then the loader script (async), so create it before loading.
+              let containerDiv = wrapper.querySelector(
+                `#${unit.containerId}`
+              ) as HTMLDivElement | null;
+              if (!containerDiv) {
+                containerDiv = document.createElement('div');
+                containerDiv.id = unit.containerId;
+                containerDiv.style.width = '100%';
+                containerDiv.style.height = '250px';
+                wrapper.appendChild(containerDiv);
+              }
+
+              const success = await waitForExternalScript(
+                unit.scriptSrc!,
+                wrapper,
+                5000,
+                true,
+                unit.attributes
+              );
+              if (success) {
+                wrapper.setAttribute('data-loaded', 'true');
+              }
+              continue;
+            }
+
+            // Units with atOptions: set atOptions inline first, then load external script.
+            setAtOptionsInline(unit.inlineCode!, wrapper);
+
             const success = await waitForExternalScript(
               unit.scriptSrc!,
               wrapper,
-              5000,
-              true, // official snippet loads this unit's script with async
-              unit.attributes
+              5000
             );
             if (success) {
               wrapper.setAttribute('data-loaded', 'true');
             }
-            continue;
+          } catch (e) {
+            console.error(
+              `AdInjector: unit "${unitId}" injection failed`,
+              e
+            );
           }
-
-          // Units with atOptions: set atOptions inline first, then load external script.
-          setAtOptionsInline(unit.inlineCode!, wrapper);
-
-          const success = await waitForExternalScript(
-            unit.scriptSrc!,
-            wrapper,
-            5000
-          );
-          if (success) {
-            wrapper.setAttribute('data-loaded', 'true');
-          }
-        } catch (e) {
-          console.error(
-            `AdInjector: unit "${unitId}" injection failed`,
-            e
-          );
         }
       }
     })();
