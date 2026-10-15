@@ -5,6 +5,7 @@ const DETECTION_DELAY_MS = 1200;
 const AD_SCRIPT_FAILURE_THRESHOLD = 3;
 const AD_SCRIPT_FAILURE_WINDOW_MS = 10000;
 const AD_SCRIPT_HOSTS = new Set(["abscloud.org", "bauval.org"]);
+const LOCAL_HOSTNAMES = new Set(["localhost", "127.0.0.1", "::1"]);
 
 function hasVisibleBox(element: HTMLElement) {
   const styles = window.getComputedStyle(element);
@@ -28,6 +29,8 @@ export default function AntiAdBlock() {
   const refreshButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    if (LOCAL_HOSTNAMES.has(window.location.hostname)) return;
+
     const failedAdScripts = new Set<string>();
     const observedAdSlots = new Set<string>();
     const blockedAdSlots = new Set<string>();
