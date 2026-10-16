@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, Download, Heart, X } from "lucide-react";
 import { usePatterns } from "@/context/PatternsContext";
 import { PatternCard } from "@/components/PatternCard";
-import { AdInjector } from "@/components/ads/ad-injector";
 
 const FALLBACK_IMG = "/placeholder-400x300.svg";
 
@@ -269,8 +268,6 @@ function PatternDetailContent() {
         </div>
       )}
 
-      {/* Ad injection – initializes all seven ad units (guarded against double-init) */}
-      <AdInjector />
     </main>
   );
 }

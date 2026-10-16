@@ -45,6 +45,7 @@ async function waitForExternalScript(
       // cleanup and resolve false on timeout
       const existing = container.querySelector('script[src="' + src + '"]');
       if (existing) container.removeChild(existing);
+      reportAdScriptError(src);
       resolve(false);
     }, timeoutMs);
 
@@ -91,16 +92,28 @@ export function AdInjector() {
             const script = document.createElement('script');
             script.setAttribute('data-cfasync', 'false');
             script.src = unit.scriptSrc!;
-            script.addEventListener('error', () => reportAdScriptError(script.src));
+            const timeout = window.setTimeout(() => {
+              if (!script.isConnected) return;
+              script.remove();
+              reportAdScriptError(script.src);
+            }, 10000);
+            script.addEventListener('load', () => window.clearTimeout(timeout), { once: true });
+            script.addEventListener('error', () => {
+              window.clearTimeout(timeout);
+              reportAdScriptError(script.src);
+            }, { once: true });
             document.body.appendChild(script);
           }
           continue;
         }
 
         // Find the wrapper div that already exists in the current page DOM.
-        const wrappers = Array.from(
+        const visibleWrappers = Array.from(
           document.querySelectorAll<HTMLElement>(`div[data-unit-id="${unitId}"]`)
         ).filter((candidate) => candidate.getClientRects().length > 0);
+        const wrappers = unit.isSocialBar
+          ? visibleWrappers.slice(0, 1)
+          : visibleWrappers;
         // Unit not placed on this page (pages embed a subset of the units).
         if (wrappers.length === 0) continue;
 

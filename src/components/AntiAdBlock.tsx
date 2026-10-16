@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-const DETECTION_DELAY_MS = 1200;
 const AD_SCRIPT_FAILURE_THRESHOLD = 3;
-const AD_SCRIPT_FAILURE_WINDOW_MS = 10000;
+const AD_SCRIPT_FAILURE_WINDOW_MS = 30000;
+const REMOVED_CREATIVE_CONFIRMATION_MS = 1500;
 const AD_SCRIPT_HOSTS = new Set(["abscloud.org", "bauval.org"]);
 const LOCAL_HOSTNAMES = new Set(["localhost", "127.0.0.1", "::1"]);
 
@@ -20,10 +20,6 @@ function hasVisibleBox(element: HTMLElement) {
   );
 }
 
-function isAdBaitBlocked(element: HTMLElement) {
-  return !element.isConnected || !hasVisibleBox(element);
-}
-
 export default function AntiAdBlock() {
   const [blocked, setBlocked] = useState(false);
   const refreshButtonRef = useRef<HTMLButtonElement>(null);
@@ -32,12 +28,12 @@ export default function AntiAdBlock() {
     if (LOCAL_HOSTNAMES.has(window.location.hostname)) return;
 
     const failedAdScripts = new Set<string>();
-    const observedAdSlots = new Set<string>();
-    const blockedAdSlots = new Set<string>();
+    const observedAdSlots = new WeakSet<HTMLElement>();
+    const blockedAdSlots = new Set<HTMLElement>();
     let failureWindowStartedAt: number | null = null;
     let blockedSlotWindowStartedAt: number | null = null;
 
-    const noteBlockedAdSlot = (slotId: string) => {
+    const noteBlockedAdSlot = (slot: HTMLElement) => {
       const now = Date.now();
       if (
         blockedSlotWindowStartedAt === null ||
@@ -46,14 +42,13 @@ export default function AntiAdBlock() {
         blockedAdSlots.clear();
         blockedSlotWindowStartedAt = now;
       }
-      blockedAdSlots.add(slotId);
+      blockedAdSlots.add(slot);
       if (blockedAdSlots.size >= 2) setBlocked(true);
     };
 
     const inspectAdSlots = () => {
       document.querySelectorAll<HTMLElement>("[data-unit-id]").forEach((slot) => {
-        const slotId = slot.dataset.unitId;
-        if (!slotId || slot.dataset.loaded !== "true" || !hasVisibleBox(slot)) {
+        if (!slot.dataset.unitId || slot.dataset.loaded !== "true" || !hasVisibleBox(slot)) {
           return;
         }
 
@@ -62,9 +57,7 @@ export default function AntiAdBlock() {
         ).some(hasVisibleBox);
 
         if (hasVisibleCreative) {
-          observedAdSlots.add(slotId);
-        } else if (observedAdSlots.has(slotId)) {
-          noteBlockedAdSlot(slotId);
+          observedAdSlots.add(slot);
         }
       });
     };
@@ -114,9 +107,16 @@ export default function AntiAdBlock() {
         if (
           removedCreative &&
           slotId &&
-          (hasVisibleBox(slot) || observedAdSlots.has(slotId))
+          observedAdSlots.has(slot)
         ) {
-          noteBlockedAdSlot(slotId);
+          window.setTimeout(() => {
+            if (!slot.isConnected || !hasVisibleBox(slot)) return;
+
+            const hasVisibleCreative = Array.from(
+              slot.querySelectorAll<HTMLIFrameElement>("iframe"),
+            ).some(hasVisibleBox);
+            if (!hasVisibleCreative) noteBlockedAdSlot(slot);
+          }, REMOVED_CREATIVE_CONFIRMATION_MS);
         }
       });
       inspectAdSlots();
@@ -124,33 +124,10 @@ export default function AntiAdBlock() {
     adSlotObserver.observe(document.body, { childList: true, subtree: true });
     const adSlotCheck = window.setInterval(inspectAdSlots, 750);
 
-    const bait = document.createElement("div");
-    bait.className = "ad-placement adsbox ad-banner";
-    bait.setAttribute("aria-hidden", "true");
-    Object.assign(bait.style, {
-      position: "absolute",
-      left: "-10000px",
-      top: "0",
-      width: "10px",
-      height: "10px",
-      overflow: "hidden",
-      visibility: "visible",
-      opacity: "1",
-      pointerEvents: "none",
-    });
-    document.body.appendChild(bait);
-
-    const timer = window.setTimeout(() => {
-      if (isAdBaitBlocked(bait)) setBlocked(true);
-      bait.remove();
-    }, DETECTION_DELAY_MS);
-
     return () => {
-      window.clearTimeout(timer);
       window.clearInterval(adSlotCheck);
       adSlotObserver.disconnect();
       window.removeEventListener("ad-resource-error", handleAdResourceError);
-      bait.remove();
     };
   }, []);
 
@@ -190,13 +167,13 @@ export default function AntiAdBlock() {
         role="alertdialog"
       >
         <h1 className="text-2xl font-bold tracking-tight sm:text-3xl" id="anti-adblock-title">
-          Ad Blocker Detected!
+          Ads Could Not Load
         </h1>
         <p className="mt-4 text-base leading-7 text-zinc-200">
-          It looks like you're using an ad blocker. Our website relies on advertising to provide free crochet patterns.
+          Some ad content could not load. This can happen when an ad blocker is enabled or when the ad service or connection is unavailable.
         </p>
         <p className="mt-3 text-sm leading-6 text-zinc-300">
-          Please disable your ad blocker and refresh the page to continue browsing.
+          Check your connection or ad-blocking settings, then retry.
         </p>
         <button
           className="mt-7 w-full bg-rose-600 px-5 py-3 font-semibold text-white transition-colors hover:bg-rose-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:w-auto"
@@ -204,7 +181,7 @@ export default function AntiAdBlock() {
           ref={refreshButtonRef}
           type="button"
         >
-          I've Disabled AdBlock {"\u2014"} Refresh
+          Retry
         </button>
       </section>
     </div>,
