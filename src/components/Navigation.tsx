@@ -6,10 +6,10 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto h-20 flex items-center justify-between px-6">
         <div className="flex items-center gap-2">
           <img
-            src="/text logo-Picsart-BackgroundRemover copy.jpg"
-            alt="Crochet Blog Logo"
+            src="/Create_simple_circle_logo_2K_20261016140954.jpg"
+            alt="CROCHET ART logo"
             loading="eager"
-            className="h-24 w-44 ms-0 sm:h-10 md:w-45 md:h-24"
+            className="h-14 w-14 object-contain"
           />
         </div>
 
