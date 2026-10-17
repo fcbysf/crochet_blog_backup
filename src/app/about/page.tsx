@@ -19,6 +19,7 @@ export default function AboutPage() {
                 alt="Crochet project"
                 width={500}
                 height={400}
+                loading="eager"
                 className="m-auto rounded-lg object-cover"
               />
             </div>

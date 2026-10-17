@@ -8,6 +8,7 @@ export const Navigation = () => {
           <img
             src="/text logo-Picsart-BackgroundRemover copy.jpg"
             alt="Crochet Blog Logo"
+            loading="eager"
             className="h-24 w-44 ms-0 sm:h-10 md:w-45 md:h-24"
           />
         </div>

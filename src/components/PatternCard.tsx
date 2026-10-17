@@ -22,6 +22,7 @@ export function PatternCard({ pattern }: PatternCardProps) {
         <img
           src={imgSrc}
           alt={pattern.title}
+          loading="lazy"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
           onError={() => setImgSrc(FALLBACK_IMG)}
         />

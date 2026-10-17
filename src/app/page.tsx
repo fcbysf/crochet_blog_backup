@@ -25,6 +25,8 @@ export default function Home() {
                 alt="Finished crochet project"
                 width={380}
                 height={350}
+                loading="eager"
+                fetchPriority="high"
                 className="m-auto rounded-lg object-cover"
               />
             </div>
@@ -44,6 +46,7 @@ export default function Home() {
                 alt="Crochet project"
                 width={1536}
                 height={1024}
+                loading="lazy"
                 className="w-full h-auto rounded-lg object-cover"
               />
             </div>

@@ -100,6 +100,8 @@ function PatternDetailContent() {
             <img
               src={pattern.mainImg}
               alt={pattern.title}
+              loading="eager"
+              fetchPriority="high"
               className="absolute inset-0 h-full w-full object-cover"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = FALLBACK_IMG;
@@ -151,6 +153,7 @@ function PatternDetailContent() {
                       <img
                         src={img}
                         alt={`${pattern.title} view ${index + 1}`}
+                        loading="lazy"
                         className="absolute inset-0 h-full w-full object-cover"
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = FALLBACK_IMG;
@@ -259,6 +262,7 @@ function PatternDetailContent() {
             <img
               src={selectedImg}
               alt={pattern.title}
+              loading="eager"
               className="absolute inset-0 h-full w-full object-contain"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = FALLBACK_IMG;
