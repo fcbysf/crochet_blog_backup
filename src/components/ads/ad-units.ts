@@ -1,11 +1,5 @@
 export const adUnits = [
   {
-    id: 'popunder',
-    type: 'popunder',
-    scriptSrc: 'https://abscloud.org/1/c34e2ca05b9d9e67b49b861f71b8527b',
-    attributes: { 'data-cfasync': 'false' },
-  },
-  {
     id: 'social-bar',
     type: 'social-bar',
     scriptSrc: 'https://bauval.org/14/0304a62cea8845b6eb0983e7841b7055',

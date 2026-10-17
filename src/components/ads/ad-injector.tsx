@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import { adUnits } from "./ad-units";
 
 const INJECTION_ORDER = [
-  'popunder',
   'social-bar',
   'container-banner',
   'banner-320x50',
@@ -86,26 +85,6 @@ export function AdInjector() {
 
         const unit = adUnits.find((u) => u.id === unitId);
         if (!unit) continue;
-
-        if (unitId === 'popunder') {
-          if (!document.querySelector(`script[src="${unit.scriptSrc}"]`)) {
-            const script = document.createElement('script');
-            script.setAttribute('data-cfasync', 'false');
-            script.src = unit.scriptSrc!;
-            const timeout = window.setTimeout(() => {
-              if (!script.isConnected) return;
-              script.remove();
-              reportAdScriptError(script.src);
-            }, 10000);
-            script.addEventListener('load', () => window.clearTimeout(timeout), { once: true });
-            script.addEventListener('error', () => {
-              window.clearTimeout(timeout);
-              reportAdScriptError(script.src);
-            }, { once: true });
-            document.body.appendChild(script);
-          }
-          continue;
-        }
 
         // Find the wrapper div that already exists in the current page DOM.
         const visibleWrappers = Array.from(
