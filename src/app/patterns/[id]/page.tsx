@@ -72,22 +72,22 @@ function PatternDetailContent() {
   };
 
   return (
-    <main className=" pb-12">
+    <main className=" pb-12 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6">
-        <div data-unit-id="leader-468x60" className="mobile-leaderboard mobile-leaderboard-568 block " />
-        <div data-unit-id="leader-468x60" className="mobile-leaderboard mobile-leaderboard-568 block " />
+        <div data-unit-id="leader-728x90" className="mb-5"></div>
+
 
         {/* Back link */}
         <Link
           to="/"
-          className="mb-6 inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
+          className="mb-6 inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors my-2 hover:text-zinc-900 dark:hover:text-zinc-100"
         >
           <ArrowLeft className="h-4 w-4" />
           All patterns
         </Link>
 
         {/* Social Bar (Adsterra unit 1) – sticky, page-level ad */}
-        <div data-unit-id="social-bar" className=" sm:block sticky top-0 z-40"></div>
+        <div data-unit-id="social-bar" className="sticky top-0 z-40"></div>
 
         {/* Hero: main image left, details + related images right */}
         <section className="mb-14 grid w-full min-w-0 gap-8 lg:grid-cols-2 lg:items-stretch">
@@ -109,7 +109,6 @@ function PatternDetailContent() {
             />
           </button>
 
-          <div data-unit-id="skyscraper-160x300" className="mobile-inline-ad block w-full min-w-0 sm:hidden" />
 
           <div className="flex min-w-0 flex-col gap-6">
             <div className="flex flex-col gap-4">
@@ -136,6 +135,12 @@ function PatternDetailContent() {
               <p className="leading-relaxed text-zinc-600 dark:text-zinc-400">
                 {pattern.description}
               </p>
+              <div data-unit-id="banner-320x50" className="block "></div>
+              <div data-unit-id="leader-468x60" className="mobile-leaderboard mobile-leaderboard-568 block " />
+
+
+
+
             </div>
 
             {/* Gallery: small thumbnails in a row */}
@@ -183,11 +188,14 @@ function PatternDetailContent() {
         }} className="w-3/4 m-auto " >
         </section>
 
-        {/* Banner 320x50 (Adsterra unit 3 – mobile banner) */}
-        <div data-unit-id="banner-320x50" className="block sm:hidden mb-4"></div>
 
         {/* Support me */}
+        <div className="flex justify-center" >
+
+          <div data-unit-id="rect-300x250" className="mb-6"></div>
+        </div>
         <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
+
           {pattern.buyUrl && (
             <a
               href={pattern.buyUrl}
@@ -199,8 +207,6 @@ function PatternDetailContent() {
             </a>
           )}
 
-          <div data-unit-id="rect-300x250" className="block w-full sm:hidden" />
-          <div data-unit-id="social-bar" className="block w-full sm:hidden" />
 
           <a
             href={"https://crochetmakerr.gumroad.com/"}
@@ -213,9 +219,13 @@ function PatternDetailContent() {
           </a>
 
         </div>
+        <div className="flex justify-center">
+
+        <div data-unit-id="skyscraper-160x300" className=" sm:block  my-3"></div>
+        </div>
+
 
         {/* Rectangle 300x250 (Adsterra unit 4) */}
-        <div data-unit-id="rect-300x250" className="mb-6"></div>
 
         {/* Similar patterns */}
         {similar.length > 0 && (
@@ -232,13 +242,7 @@ function PatternDetailContent() {
         )}
 
         {/* Skyscraper 160x300 (Adsterra unit 5) */}
-        <div data-unit-id="skyscraper-160x300" className="hidden sm:block mb-8"></div>
 
-        {/* Leaderboard 468x60 (Adsterra unit 6 – desktop, needs 468px width) */}
-        <div data-unit-id="leader-468x60" className="hidden sm:block mb-8"></div>
-
-        {/* Leaderboard 728x90 (Adsterra unit 7 – desktop only) */}
-        <div data-unit-id="leader-728x90" className="hidden lg:block mb-8"></div>
       </div>
 
       {/* Lightbox */}

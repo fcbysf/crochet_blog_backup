@@ -2,7 +2,7 @@ import { PatternGallery } from "@/components/PatternGallery";
 
 export default function Home() {
   return (
-    <main className="pb-12">
+    <main className="pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Hero Section */}
@@ -10,6 +10,12 @@ export default function Home() {
           <div className="flex flex-row gap-4 lg:gap-12 items-center">
             {/* Left column: title, subtitle, subscribe form */}
             <div className="flex-1 w-1/2 text-left ms-0 lg:ms-12">
+              <div className="flex flex-col items-center justify-center mb-6 max-[768px]:">
+                <div data-unit-id="leader-728x90" className="mb-8"></div>
+
+              </div>
+
+
               <h1 className="text-2xl md:text-6xl font-bold tracking-tight text-zinc-900 mb-4">
                 Your Next Favorite Crochet Project Starts Here
               </h1>
@@ -33,11 +39,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Rectangle 300x250 (Adsterra unit 4) */}
-        <div data-unit-id="rect-300x250" className="mb-6"></div>
+        <div data-unit-id="container-banner" className="mb-8"></div>
+
 
         {/* About Us Section */}
-        <section id="about" className="md:mt-32 mb-24 md:mb-52">
+        <section id="about" className="md:mt-32 mb-5  mt-240">
           <div className="flex flex-row gap-4 lg:gap-12 items-center">
             {/* Left column: about image */}
             <div className="flex-1">
@@ -64,21 +70,27 @@ export default function Home() {
         </section>
 
         {/* Banner 320x50 (Adsterra unit 3 – mobile banner) */}
-        <div data-unit-id="banner-320x50" className="block mb-4 w-full"></div>
+        <div className="flex flex-col gap-1 justify-center items-center ">
+          <div data-unit-id="leader-468x60" className=""></div>
+          <div data-unit-id="banner-320x50" className="block"></div>
+        </div>
 
         {/* Pattern Sections - rendered from the PatternsContext */}
-        <section id="latest-patterns" className="mb-16">
+        <section id="latest-patterns" className="mb-3">
           <PatternGallery title="Latest Patterns" />
         </section>
+        <div className="flex justify-center gap-2 flex-wrap">
+          <div data-unit-id="rect-300x250" className=""></div>
+          <div data-unit-id="skyscraper-160x300" className="flex justify-center "></div>
 
+        </div>
         <PatternGallery
           title="Easy Patterns for Beginners"
           difficulty="Beginner"
         />
         <PatternGallery title="Popular Patterns" limit={3} />
 
-        {/* Container Banner (Adsterra unit 2) */}
-        <div data-unit-id="container-banner" className="mb-8"></div>
+
 
         {/* Contact Section */}
         <section id="contact" className="mt-24 py-12 bg-zinc-50">
@@ -86,7 +98,6 @@ export default function Home() {
             <h2 className="text-2xl font-bold text-zinc-900 mb-4 dark:text-zinc-100">
               Contact Us
             </h2>
-            <div data-unit-id="leader-728x90" className="hidden lg:block mb-8"></div>
             <p className="text-zinc-600 dark:text-zinc-600 mb-6">
               Got questions or feedback? Drop us a line at info@crochetblog.com
             </p>
@@ -131,11 +142,9 @@ export default function Home() {
                 Send Message
               </button>
             </form>
-            <div data-unit-id="skyscraper-160x300" className="flex justify-center m-8"></div>
           </div>
         </section>
 
-        <div data-unit-id="leader-468x60" className=" mb-8"></div>
       </div>
     </main>
   );
