@@ -27,22 +27,13 @@ function socialMetadataPlugin(): Plugin {
       await Promise.all(
         samplePatterns.map(async (pattern) => {
           const title = pattern.title.trim();
-          const description = pattern.description.slice(0, 200);
           const url = `${siteUrl}/patterns/${encodeURIComponent(pattern.id)}`;
           const imageUrl = new URL(pattern.mainImg, `${siteUrl}/`).href;
           const html = template
             .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(title)} | Crochet Art</title>`)
             .replace(
-              /<meta name="description" content="[^"]*"\s*\/>/,
-              `<meta name="description" content="${escapeHtml(description)}" />`
-            )
-            .replace(
               /<meta property="og:title" content="[^"]*"\s*\/>/,
               `<meta property="og:title" content="${escapeHtml(title)}" />`
-            )
-            .replace(
-              /<meta property="og:description" content="[^"]*"\s*\/>/,
-              `<meta property="og:description" content="${escapeHtml(description)}" />`
             )
             .replace(
               /<meta property="og:image" content="[^"]*"\s*\/>/,
@@ -55,10 +46,6 @@ function socialMetadataPlugin(): Plugin {
             .replace(
               /<meta name="twitter:title" content="[^"]*"\s*\/>/,
               `<meta name="twitter:title" content="${escapeHtml(title)}" />`
-            )
-            .replace(
-              /<meta name="twitter:description" content="[^"]*"\s*\/>/,
-              `<meta name="twitter:description" content="${escapeHtml(description)}" />`
             )
             .replace(
               /<meta name="twitter:image" content="[^"]*"\s*\/>/,
