@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { PatternGallery } from "@/components/PatternGallery";
 
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const isSearching = searchQuery.trim().length > 0;
+
   return (
     <main className="pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -77,19 +81,25 @@ export default function Home() {
 
         {/* Pattern Sections - rendered from the PatternsContext */}
         <section id="latest-patterns" className="mb-3">
-          <PatternGallery title="Latest Patterns" />
+          <PatternGallery
+            title={isSearching ? "Search Results" : "Latest Patterns"}
+            searchQuery={searchQuery}
+            onSearchQueryChange={setSearchQuery}
+          />
         </section>
-        <div className="flex justify-center gap-2 flex-wrap">
-          <div data-unit-id="rect-300x250" className=""></div>
-          <div data-unit-id="skyscraper-160x300" className="flex justify-center "></div>
-
-        </div>
-        <PatternGallery
-          title="Easy Patterns for Beginners"
-          difficulty="Beginner"
-        />
-        <PatternGallery title="Popular Patterns" limit={3} />
-
+        {!isSearching && (
+          <>
+            <div className="flex justify-center gap-2 flex-wrap">
+              <div data-unit-id="rect-300x250" className=""></div>
+              <div data-unit-id="skyscraper-160x300" className="flex justify-center "></div>
+            </div>
+            <PatternGallery
+              title="Easy Patterns for Beginners"
+              difficulty="Beginner"
+            />
+            <PatternGallery title="Popular Patterns" limit={3} />
+          </>
+        )}
 
 
         {/* Contact Section */}
