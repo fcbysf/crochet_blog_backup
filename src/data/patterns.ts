@@ -273,4 +273,17 @@ export const samplePatterns: CrochetPattern[] = [
     otherImgs:["/pattern imgs/3laces/Make_cute_shots_crochet_shoes_2K_20261018012419.jpg"],
     buyUrl: "https://crochetmakerr.gumroad.com/l/3lacesshoes",
   },
+  {
+    id: "crochet-labubus",
+    title: "Fluffy Monster Face Crochet Pattern Cute Amigurumi Keychain PDF Ebook",
+    description:"Make your own soft and squishy plush monster face charm with this beginner-friendly crochet pattern! Perfect for keyrings, bag charms, or cute little handmade gifts, this fuzzy amigurumi pattern is quick to stitch up and fun to customize.",
+    patternText:`<div><h1>Plush Face Crochet Pattern</h1><p>A soft &amp; squishy little amigurumi face[cite: 81]</p><h2>Materials Needed</h2><ul><li>Plush yarn for the face: Himalaya Dolphin Baby 80342 (or any other beige plush yarn)[cite: 81].</li><li>Furry/Softy/Plush yarn for the fur/body[cite: 81].</li><li>Semi-cotton yarn (YarnArt Jeans) for facial features[cite: 81].</li><li>Safety eyes: 16 mm[cite: 81].</li><li>White felt/foamiran (for teeth)[cite: 81].</li><li>Stuffing (polyester fiberfill)[cite: 81].</li><li>Crochet hook: 4.0 mm[cite: 81].</li><li>Scissors, stitch marker[cite: 81].</li><li>Optional: False eyelashes[cite: 81].</li></ul><h2>Abbreviations (US/Standard Crochet Terms)</h2><ul><li><strong>MR</strong> - Magic Ring[cite: 81]</li><li><strong>SC</strong> - Single Crochet[cite: 81]</li><li><strong>CH</strong> - Chain[cite: 81]</li><li><strong>DEC</strong> - Decrease[cite: 81]</li><li><strong>INC</strong> - Increase[cite: 81]</li><li><strong>HDC</strong> - Half Double Crochet[cite: 81]</li></ul><h2>Instructions (First Half)</h2><p>Start crocheting with the beige yarn[cite: 82].</p><ol><li><strong>1:</strong> 5 CH [5][cite: 82]</li><li><strong>2:</strong> INC, 2 SC, 3 SC in one stitch, 3 SC [10][cite: 82]</li><li><strong>3:</strong> 2 INC, 2 SC, 3 INC, 2 SC, INC [16][cite: 82]</li><li><strong>4:</strong> (SC, INC) x 2, 2 SC, (SC, INC) x 3, 2 SC, SC, INC [22][cite: 82]</li></ol><p><em>Insert the safety eyes between rows 2 and 3, leaving a distance of 4 SC between the eye posts[cite: 82].</em></p><p>Change to the colored (furry) yarn[cite: 82]. Work the next row through the back loops only[cite: 82].</p><ul><li><strong>5:</strong> 22 SC [22][cite: 82]</li></ul></div><h1><strong>get the PDF for full pattern</strong></h1><ElicitationsGroup>`,
+    author: "crochet art",
+    date: "2025-03-16",
+    difficulty: "Beginner",
+    category: "keychains",
+    mainImg: "/pattern imgs/labubus/Make_cute_crochet_keychain_shots_2K_20261019162341.jpg",
+    otherImgs:["/pattern imgs/labubus/Make_cute_crochet_keychain_shots_2K_20261019162341.jpg","/pattern imgs/labubus/Woman_holding_keychain_2K_20261019162332.jpg","/pattern imgs/labubus/Woman_holding_keychain_2K_20261019162337.jpg","/pattern imgs/labubus/Capture.PNG"],
+    buyUrl: "https://crochetmakerr.gumroad.com/l/labubus",
+  },
 ]
