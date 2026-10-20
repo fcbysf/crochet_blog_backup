@@ -179,10 +179,20 @@ function PatternDetailContent() {
 
         {/* Container Banner (Adsterra unit 2) – injected by AdInjector */}
         <div data-unit-id="container-banner" className="mb-[1050px] xsm:mb-[270px] md:mb-[100px] lg:mb-25"></div>
+        <div className="flex justify-between items-center">
+          <h1 className="w-3/4  mb-6 text-lg sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+            Pattern Instructions
+          </h1>
+          <a
+            href={"https://araplhn.org/4/ab7a1440d71cdafdcde12a07effeab94"}
 
-        <h1 className="w-3/4  mb-6 text-2xl font-bold text-zinc-900 dark:text-zinc-100">
-          Pattern Instructions
-        </h1>
+            className="inline-flex items-center gap-2 rounded-lg bg-green-200 hover:bg-green-300 px-2 py-1.5 mb-2.5 text-[10px] sm:text-lg sm:me-100 text-shadow-gray-300 font-bold transition-colors dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+          >
+            <Download className="h-4 w-4" />
+            FREE PDF pattern
+          </a>
+
+        </div>
         <section dangerouslySetInnerHTML={{
           __html: pattern.patternText || "<p>No pattern text available.</p>"
         }} className="w-3/4 m-auto " >
@@ -221,7 +231,7 @@ function PatternDetailContent() {
         </div>
         <div className="flex justify-center">
 
-        <div data-unit-id="skyscraper-160x300" className=" sm:block  my-3"></div>
+          <div data-unit-id="skyscraper-160x300" className=" sm:block  my-3"></div>
         </div>
 
 
@@ -246,36 +256,38 @@ function PatternDetailContent() {
       </div>
 
       {/* Lightbox */}
-      {selectedImg && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
-          onClick={() => setSelectedImg(null)}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Image viewer"
-        >
-          <button
-            type="button"
+      {
+        selectedImg && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
             onClick={() => setSelectedImg(null)}
-            className="absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
-            aria-label="Close image viewer"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Image viewer"
           >
-            <X className="h-5 w-5" />
-          </button>
-          <div className="relative h-[90vh] w-[90vw]">
-            <img
-              src={selectedImg}
-              alt={pattern.title}
-              loading="eager"
-              className="absolute inset-0 h-full w-full object-contain"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = FALLBACK_IMG;
-              }}
-            />
+            <button
+              type="button"
+              onClick={() => setSelectedImg(null)}
+              className="absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
+              aria-label="Close image viewer"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <div className="relative h-[90vh] w-[90vw]">
+              <img
+                src={selectedImg}
+                alt={pattern.title}
+                loading="eager"
+                className="absolute inset-0 h-full w-full object-contain"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = FALLBACK_IMG;
+                }}
+              />
+            </div>
           </div>
-        </div>
-      )}
+        )
+      }
 
-    </main>
+    </main >
   );
 }

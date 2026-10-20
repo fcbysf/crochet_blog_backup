@@ -73,11 +73,22 @@ export default function Home() {
           </div>
         </section>
 
+
         {/* Banner 320x50 (Adsterra unit 3 – mobile banner) */}
         <div className="flex flex-col gap-1 justify-center items-center ">
           <div data-unit-id="leader-468x60" className=""></div>
           <div data-unit-id="banner-320x50" className="block"></div>
         </div>
+        <section aria-label="Free crochet patterns" className="relative left-1/2 w-screen -translate-x-1/2 px-6 mt-8">
+          <a
+            href="https://araplhn.org/4/ab7a1440d71cdafdcde12a07effeab94"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="free-patterns-link flex min-h-20 w-full items-center justify-center rounded-xl px-6 py-5 text-center text-xl font-extrabold tracking-widest text-white shadow-lg transition-transform hover:scale-[1.01] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-fuchsia-500 md:text-2xl"
+          >
+            FREE PATTERNS HERE
+          </a>
+        </section>
 
         {/* Pattern Sections - rendered from the PatternsContext */}
         <section id="latest-patterns" className="mb-3">

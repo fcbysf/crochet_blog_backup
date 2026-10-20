@@ -27,6 +27,29 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
+.free-patterns-link {
+  background: linear-gradient(110deg, #7c3aed, #db2777, #f97316, #16a34a, #7c3aed);
+  background-size: 300% 100%;
+  animation: free-patterns-gradient 6s ease infinite;
+}
+
+@keyframes free-patterns-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .free-patterns-link {
+    animation: none;
+  }
+}
+
 @media (max-width: 639px) {
   .mobile-leaderboard {
     position: relative;
