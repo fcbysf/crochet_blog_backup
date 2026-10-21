@@ -11,6 +11,7 @@ const INJECTION_ORDER = [
   'leader-468x60',
   'leader-728x90',
 ];
+const AD_SCRIPT_TIMEOUT_MS = 15000;
 
 function reportAdScriptError(src: string) {
   window.dispatchEvent(
@@ -139,7 +140,7 @@ export function AdInjector() {
               const success = await waitForExternalScript(
                 unit.scriptSrc!,
                 wrapper,
-                5000,
+                AD_SCRIPT_TIMEOUT_MS,
                 true,
                 unit.attributes
               );
@@ -155,7 +156,7 @@ export function AdInjector() {
             const success = await waitForExternalScript(
               unit.scriptSrc!,
               wrapper,
-              5000,
+              AD_SCRIPT_TIMEOUT_MS,
               false,
               unit.attributes
             );

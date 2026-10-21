@@ -4,10 +4,10 @@ import { createPortal } from "react-dom";
 const AD_SCRIPT_FAILURE_THRESHOLD = 3;
 const AD_SCRIPT_FAILURE_WINDOW_MS = 30000;
 const DESKTOP_BLOCKED_AD_SLOT_THRESHOLD = 2;
-const MOBILE_BLOCKED_AD_SLOT_THRESHOLD = 3;
 const REMOVED_CREATIVE_CONFIRMATION_MS = 1500;
 const AD_SCRIPT_HOSTS = new Set(["abscloud.org", "bauval.org"]);
 const LOCAL_HOSTNAMES = new Set(["localhost", "127.0.0.1", "::1"]);
+const MOBILE_VIEWPORT_QUERY = "(max-width: 767px)";
 
 function hasVisibleBox(element: HTMLElement) {
   const styles = window.getComputedStyle(element);
@@ -24,12 +24,21 @@ function hasVisibleBox(element: HTMLElement) {
 
 export default function AntiAdBlock() {
   const [blocked, setBlocked] = useState(false);
+  const [isMobile, setIsMobile] = useState(() =>
+    window.matchMedia(MOBILE_VIEWPORT_QUERY).matches,
+  );
   const refreshButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (LOCAL_HOSTNAMES.has(window.location.hostname)) return;
+    const mobileViewport = window.matchMedia(MOBILE_VIEWPORT_QUERY);
+    const updateMobileViewport = () => setIsMobile(mobileViewport.matches);
+    mobileViewport.addEventListener("change", updateMobileViewport);
+    return () => mobileViewport.removeEventListener("change", updateMobileViewport);
+  }, []);
 
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  useEffect(() => {
+    if (LOCAL_HOSTNAMES.has(window.location.hostname) || isMobile) return;
+
     const observedAdSlots = new WeakSet<HTMLElement>();
     const blockedAdSlots = new Set<HTMLElement>();
     const failedAdScripts = new Set<string>();
@@ -46,10 +55,7 @@ export default function AntiAdBlock() {
         blockedSlotWindowStartedAt = now;
       }
       blockedAdSlots.add(slot);
-      const threshold = isMobile
-        ? MOBILE_BLOCKED_AD_SLOT_THRESHOLD
-        : DESKTOP_BLOCKED_AD_SLOT_THRESHOLD;
-      if (blockedAdSlots.size >= threshold) setBlocked(true);
+      if (blockedAdSlots.size >= DESKTOP_BLOCKED_AD_SLOT_THRESHOLD) setBlocked(true);
     };
 
     const inspectAdSlots = () => {
@@ -69,8 +75,6 @@ export default function AntiAdBlock() {
     };
 
     const handleAdResourceError = (event: Event) => {
-      if (isMobile) return;
-
       const { src } = (event as CustomEvent<{ src: string }>).detail ?? {};
       if (!src) return;
 
@@ -137,10 +141,10 @@ export default function AntiAdBlock() {
       adSlotObserver.disconnect();
       window.removeEventListener("ad-resource-error", handleAdResourceError);
     };
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
-    if (!blocked) return;
+    if (!blocked || isMobile) return;
 
     const appRoot = document.getElementById("root");
     const previousOverflow = document.body.style.overflow;
@@ -162,9 +166,9 @@ export default function AntiAdBlock() {
       if (appRoot) appRoot.inert = wasInert;
       document.removeEventListener("keydown", preventEscape, true);
     };
-  }, [blocked]);
+  }, [blocked, isMobile]);
 
-  if (!blocked) return null;
+  if (!blocked || isMobile) return null;
 
   return createPortal(
     <div className="fixed inset-0 z-[2147483647] flex items-center justify-center overflow-y-auto bg-black/75 p-4">
