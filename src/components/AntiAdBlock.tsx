@@ -3,6 +3,8 @@ import { createPortal } from "react-dom";
 
 const AD_SCRIPT_FAILURE_THRESHOLD = 3;
 const AD_SCRIPT_FAILURE_WINDOW_MS = 30000;
+const DESKTOP_BLOCKED_AD_SLOT_THRESHOLD = 2;
+const MOBILE_BLOCKED_AD_SLOT_THRESHOLD = 3;
 const REMOVED_CREATIVE_CONFIRMATION_MS = 1500;
 const AD_SCRIPT_HOSTS = new Set(["abscloud.org", "bauval.org"]);
 const LOCAL_HOSTNAMES = new Set(["localhost", "127.0.0.1", "::1"]);
@@ -27,11 +29,12 @@ export default function AntiAdBlock() {
   useEffect(() => {
     if (LOCAL_HOSTNAMES.has(window.location.hostname)) return;
 
-    const failedAdScripts = new Set<string>();
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
     const observedAdSlots = new WeakSet<HTMLElement>();
     const blockedAdSlots = new Set<HTMLElement>();
-    let failureWindowStartedAt: number | null = null;
+    const failedAdScripts = new Set<string>();
     let blockedSlotWindowStartedAt: number | null = null;
+    let failureWindowStartedAt: number | null = null;
 
     const noteBlockedAdSlot = (slot: HTMLElement) => {
       const now = Date.now();
@@ -43,7 +46,10 @@ export default function AntiAdBlock() {
         blockedSlotWindowStartedAt = now;
       }
       blockedAdSlots.add(slot);
-      if (blockedAdSlots.size >= 2) setBlocked(true);
+      const threshold = isMobile
+        ? MOBILE_BLOCKED_AD_SLOT_THRESHOLD
+        : DESKTOP_BLOCKED_AD_SLOT_THRESHOLD;
+      if (blockedAdSlots.size >= threshold) setBlocked(true);
     };
 
     const inspectAdSlots = () => {
@@ -63,6 +69,8 @@ export default function AntiAdBlock() {
     };
 
     const handleAdResourceError = (event: Event) => {
+      if (isMobile) return;
+
       const { src } = (event as CustomEvent<{ src: string }>).detail ?? {};
       if (!src) return;
 
