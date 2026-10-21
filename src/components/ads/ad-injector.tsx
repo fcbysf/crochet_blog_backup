@@ -155,7 +155,9 @@ export function AdInjector() {
             const success = await waitForExternalScript(
               unit.scriptSrc!,
               wrapper,
-              5000
+              5000,
+              false,
+              unit.attributes
             );
             if (success) {
               wrapper.setAttribute('data-loaded', 'true');
