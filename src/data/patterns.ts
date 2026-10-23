@@ -550,4 +550,19 @@ export const samplePatterns: CrochetPattern[] = [
     otherImgs: ["/pattern imgs/cross/1.jpg", "/pattern imgs/cross/3.jpg", "/pattern imgs/cross/4.jpg"],
     buyUrl: "https://crochetmakerr.gumroad.com/l/cross",
   },
+  {
+    id: "darkbleubag",
+    title: "Crochet Drawstring Bag Pattern PDF Handmade Pouch Bag",
+    description: "Create a stylish crochet drawstring bag featuring a beautiful textured design, shoulder strap, decorative tassel, and matching handles.",
+    author: "crochet art",
+    patternText:`
+<article><h2>Crochet Drawstring Bag Pouch</h2><p>Create a stylish navy blue crochet handbag with a textured body, drawstring closure, sturdy handle, shoulder strap, and decorative tassel. This intermediate crochet project combines handmade craftsmanship with an elegant everyday design.</p><h3>Pattern Details</h3><ul><li>Skill Level: Intermediate</li><li>Language: English</li><li>Crochet Terms: US</li><li>Bag Length: Approximately 24 cm</li><li>Bag Width: Approximately 10 cm</li><li>Bag Height: Approximately 27 cm</li><li>Handle Length: Approximately 40 cm</li><li>Shoulder Strap: Approximately 100 cm</li></ul><h3>Materials Needed</h3><ul><li>Approximately 300 m of 3 mm crochet cord</li><li>4 mm crochet hook</li><li>2 D-rings</li><li>Snap hooks and metal bag hardware</li><li>Handle holders and end caps</li><li>4 bag feet</li><li>Stitch markers</li><li>Scissors</li><li>Small Phillips screwdriver</li><li>Optional fabric lining</li></ul><h3>Design Features</h3><p>The bag features a structured rectangular base, textured crochet walls, adjustable drawstring closure, removable shoulder strap, and matching tassel. Navy blue cord gives it a classic and versatile appearance.</p><h3>Video Tutorial</h3><p><a href="https://youtu.be/N-8-MmXVmwo" target="_blank" rel="noopener noreferrer">Watch the crochet bag video tutorial</a>.</p></article>
+`,
+    date: "2023-12-16",
+    difficulty: "Beginner",
+    category: "bags",
+    mainImg: "/pattern imgs/darkbleubag/womanhands.jpg",
+    otherImgs: ["/pattern imgs/darkbleubag/womanhands.jpg", "/pattern imgs/darkbleubag/1.jpg", "/pattern imgs/darkbleubag/Woman_holding_and_wearing_item_2K_20261023173907.jpg"],
+    buyUrl: "https://crochetmakerr.gumroad.com/l/darkbleubag",
+  },
 ]
