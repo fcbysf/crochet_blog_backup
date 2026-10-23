@@ -213,7 +213,7 @@ function PatternDetailContent() {
               className="inline-flex items-center gap-2 rounded-lg bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
             >
               <Download className="h-4 w-4" />
-              premium PDF pattern
+               Download PDF pattern
             </a>
           )}
 
