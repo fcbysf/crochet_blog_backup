@@ -195,7 +195,7 @@ function PatternDetailContent() {
         </div>
         <section dangerouslySetInnerHTML={{
           __html: pattern.patternText || "<p>No pattern text available.</p>"
-        }} className="w-3/4 m-auto " >
+        }} className=" m-auto " >
         </section>
 
 
