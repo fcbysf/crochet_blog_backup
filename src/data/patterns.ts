@@ -804,4 +804,19 @@ export const samplePatterns: CrochetPattern[] = [
     otherImgs: ["/pattern imgs/bunnykeychain/2.jpg", "/pattern imgs/bunnykeychain/1.jpg"],
     buyUrl: "https://crochetmakerr.gumroad.com/l/bunnykeychains",
   },
+  {
+    id: "jesus",
+    title: "Crochet Nativity Set Pattern: Mary, Joseph & Baby Jesus Amigurumi (PDF + video tutorial)",
+    description: "CreatBring a handmade touch to your Christmas table with this crochet nativity set. Mary in dusty pink and Joseph in sage green lean toward each other under gold halos, with sleeping Baby Jesus swaddled in cream between them. Each figure is crocheted in simple shapes, then stitched together into one cozy, giftable display.e adorable mini bunny crochet keychains with this English amigurumi pattern featuring different ear styles and customizable colors.",
+    author: "crochet art",
+    patternText:`
+
+    `,
+    date: "2025-12-16",
+    difficulty: "Beginner",
+    category: "dolls",
+    mainImg: "/pattern imgs/nativity/1.jpg",
+    otherImgs: ["/pattern imgs/nativity/1.jpg"],
+    buyUrl: "https://crochetmakerr.gumroad.com/l/jesus",
+  },
 ]
