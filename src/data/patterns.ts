@@ -775,4 +775,18 @@ export const samplePatterns: CrochetPattern[] = [
     otherImgs: ["/pattern imgs/deer/2.jpg", "/pattern imgs/deer/1.jpg"],
     buyUrl: "https://crochetmakerr.gumroad.com/l/deer",
   },
+  {
+    id: "babyjesus",
+    title: "Baby Jesus Nativity Crochet Pattern PDF | Christmas Amigurumi Manger Set",
+    description: "Create a beautiful Baby Jesus nativity scene with this detailed crochet pattern PDF, perfect for Christmas decorations and handmade holiday traditions.",
+    author: "crochet art",
+    patternText:`
+<div style="font-family:Arial,sans-serif;line-height:1.8;color:#333;max-width:800px;margin:auto;"><h2>Baby Jesus Nativity Crochet Pattern PDF</h2><p>Create a beautiful handmade Baby Jesus nativity scene with this detailed crochet pattern. Perfect for Christmas decorations, holiday traditions, and meaningful handmade gifts.</p><h3>What's Included</h3><ul><li>Baby Jesus curly hair crochet pattern</li><li>Cozy swaddling blanket</li><li>Baby diaper wrap</li><li>Golden crochet halo</li><li>Crochet straw bed</li><li>Wooden manger assembly instructions</li><li>Step-by-step photos and detailed instructions</li></ul><h3>Pattern Details</h3><ul><li><strong>Format:</strong> Digital PDF</li><li><strong>Pages:</strong> 27</li><li><strong>Language:</strong> English</li><li><strong>Skill Level:</strong> Intermediate</li><li><strong>Hook Sizes:</strong> 1.5 mm and 2.0 mm</li><li><strong>Yarn Weight:</strong> Super Fine (Size 2)</li></ul><h3>Materials Needed</h3><ul><li>Super fine cotton yarn in white, brown, golden yellow, and olive</li><li>Metallic gold yarn</li><li>1.5 mm and 2.0 mm crochet hooks</li><li>Tapestry needle and scissors</li><li>14 wooden craft sticks</li><li>Craft glue and stitch markers</li><li>Small wooden button</li></ul><h3>Important Information</h3><p>This pattern uses the Sweet Handfuls Mini Baby Doll as its base. The base doll pattern is not included and must be obtained separately.</p><p><strong>Digital Product Only:</strong> This listing is for a downloadable crochet pattern PDF, not a finished physical item.</p><p>Enjoy creating a special handmade Christmas nativity decoration!</p></div>    `,
+    date: "2025-12-16",
+    difficulty: "Beginner",
+    category: "dolls",
+    mainImg: "/pattern imgs/babyjesus/2.jpg",
+    otherImgs: ["/pattern imgs/babyjesus/2.jpg", "/pattern imgs/babyjesus/1.jpg"],
+    buyUrl: "https://crochetmakerr.gumroad.com/l/babyjesus",
+  },
 ]
