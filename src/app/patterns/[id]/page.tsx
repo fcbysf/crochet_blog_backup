@@ -184,7 +184,7 @@ function PatternDetailContent() {
             Pattern Instructions
           </h1>
           <a
-            href={"https://araplhn.org/4/ab7a1440d71cdafdcde12a07effeab94"}
+            href={"https://araplhn.org/4/befbdc95165d5a692c8b634602efa265"}
 
             className="inline-flex items-center gap-2 rounded-lg bg-green-200 hover:bg-green-300 px-2 py-1.5 mb-2.5 text-[10px] sm:text-lg sm:me-100 text-shadow-gray-300 font-bold transition-colors dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
           >
