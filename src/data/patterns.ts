@@ -970,4 +970,19 @@ export const samplePatterns: CrochetPattern[] = [
     otherImgs: ["https://flow-content.google/image/e290a347-f8c8-48ca-afa7-738d676d496a?Expires=1793224120&KeyName=labs-flow-prod-cdn-key&Signature=HNLEDPff0OuWdM122Yx7Yk4aXlI","https://flow-content.google/image/b279f582-a21d-44d1-8849-daae14fc1e70?Expires=1793224243&KeyName=labs-flow-prod-cdn-key&Signature=811E8Hd3lVPo50y6mmCm4rafBGg"],
     buyUrl: "https://crochetmakerr.gumroad.com/l/greentop",
   },
+  {
+    id: "orangebag",
+    title: "Coastal Beach Tote Crochet Pattern PDF in English and Spanish",
+    description: "This handmade bag features a warm golden beige color, sturdy crocheted handles, a spacious rectangular base, and a lovely textured stitch detail.",
+    author: "crochet art",
+    patternText:`
+<article class="w-full max-w-none bg-[#faf4e9] text-[#554432] px-3 py-8 md:px-10"><div class="mx-auto w-full max-w-5xl space-y-6 text-center"><header class="rounded-3xl bg-[#ead5ac] px-5 py-10"><p class="text-sm uppercase tracking-widest text-[#876840]">Summer Crochet Project</p><h1 class="mt-3 text-3xl font-bold md:text-5xl text-[#684923]">Coastal Beach Tote</h1><p class="mt-3 text-lg">A spacious handmade tote with beautiful textured details and comfortable crochet handles.</p><span class="mt-5 inline-block rounded-full bg-white px-5 py-2 font-semibold">Easy Crochet Bag Pattern</span></header><section class="grid grid-cols-1 gap-4 md:grid-cols-2"><div class="rounded-2xl bg-white p-6 shadow-sm"><h2 class="mb-3 text-xl font-bold text-[#8f692e]">Materials</h2><p>Lion Brand Rewind yarn in Citronella, approximately 3 balls, 6.5 mm crochet hook, stitch markers, and a large eyed yarn needle.</p></div><div class="rounded-2xl bg-white p-6 shadow-sm"><h2 class="mb-3 text-xl font-bold text-[#8f692e]">Size and Gauge</h2><p>Finished circumference approximately 94 cm. Finished height approximately 30.5 cm without handles. Gauge approximately 14 single crochet stitches per 10 cm.</p></div></section><section class="rounded-2xl bg-[#f0e2c9] p-6 md:p-8"><h2 class="mb-4 text-2xl font-bold text-[#684923]">Stitch Guide</h2><p>ch: Chain. sc: Single crochet. dc: Double crochet. sl st: Slip stitch. rnd: Round. st: Stitch. RS: Right side. rep: Repeat.</p><p class="mt-3">Crossed double crochet creates the decorative textured band near the top of the bag.</p></section><section class="rounded-2xl bg-white p-6 md:p-8 shadow-sm"><h2 class="mb-4 text-2xl font-bold text-[#684923]">Construction Overview</h2><div class="space-y-4"><p><strong>1. Base:</strong> Crochet a rectangular base using rows of single crochet stitches.</p><p><strong>2. Body:</strong> Work around the outer edges of the base, increasing at marked positions before building the sides in continuous rounds.</p><p><strong>3. Decorative Detail:</strong> Add a round of crossed double crochet near the upper edge of the bag.</p><p><strong>4. Handles:</strong> Crochet two separate tubular straps and leave long yarn tails for sewing.</p><p><strong>5. Assembly:</strong> Sew one strap to the front and one to the back, keeping both evenly positioned, then weave in all ends.</p></div></section><footer class="rounded-3xl bg-[#ead5ac] p-8"><h2 class="text-2xl font-bold text-[#684923]">Your Handmade Beach Tote</h2><p class="mt-3">A timeless crochet accessory for sunny days, thoughtful gifts, and everyday adventures.</p></footer></div></article>
+`,
+    date: "2026-12-16",
+    difficulty: "Beginner",
+    category: "bags",
+    mainImg: "https://flow-content.google/image/bca00bc7-2336-4edb-9d27-643f83cc33a8?Expires=1793230374&KeyName=labs-flow-prod-cdn-key&Signature=oJSDTb5Sq1KHv9nXD4EGyoI4dqc",
+    otherImgs: ["https://flow-content.google/image/bca00bc7-2336-4edb-9d27-643f83cc33a8?Expires=1793230374&KeyName=labs-flow-prod-cdn-key&Signature=oJSDTb5Sq1KHv9nXD4EGyoI4dqc","https://public-files.gumroad.com/j1asa17yfr6tq9hhpavrj92u715i"],
+    buyUrl: "https://crochetmakerr.gumroad.com/l/orangebag",
+  },
 ]
