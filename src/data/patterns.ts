@@ -935,8 +935,8 @@ export const samplePatterns: CrochetPattern[] = [
     date: "2026-12-16",
     difficulty: "Beginner",
     category: "flowers",
-    mainImg: "https://flow-content.google/image/99aad73a-ebc5-4d41-8a27-1c75ad74d336?Expires=1793174819&KeyName=labs-flow-prod-cdn-key&Signature=F3gHCtjyadh2NZ0KWzlvmxq276U",
-    otherImgs: ["https://flow-content.google/image/99aad73a-ebc5-4d41-8a27-1c75ad74d336?Expires=1793174819&KeyName=labs-flow-prod-cdn-key&Signature=F3gHCtjyadh2NZ0KWzlvmxq276U","https://flow-content.google/image/666b2a36-e55b-4416-9fad-79ba722176e8?Expires=1793174932&KeyName=labs-flow-prod-cdn-key&Signature=LiQomy9cCD7c_YO13IYYmsDWUzs"],
+    mainImg: "https://flow-content.google/image/6eb443ab-b13c-43a5-9403-9ff2acce83ec?Expires=1793219275&KeyName=labs-flow-prod-cdn-key&Signature=Fedho914SRUbwu31eiED5MdXnbc",
+    otherImgs: ["https://flow-content.google/image/6eb443ab-b13c-43a5-9403-9ff2acce83ec?Expires=1793219275&KeyName=labs-flow-prod-cdn-key&Signature=Fedho914SRUbwu31eiED5MdXnbc","https://flow-content.google/image/8a6eced6-986a-4db6-85c4-33324c5dd559?Expires=1793219275&KeyName=labs-flow-prod-cdn-key&Signature=hapz25HxA01ATCAf-RjE9kVjtXY"],
     buyUrl: "https://crochetmakerr.gumroad.com/l/purpleflowers",
   },
   {
