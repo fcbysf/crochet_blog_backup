@@ -1074,4 +1074,19 @@ export const samplePatterns: CrochetPattern[] = [
     otherImgs: ["https://public-files.gumroad.com/846h8c1xcx3weseef5nc1jvyz87o","https://public-files.gumroad.com/jny0hz8wo7eopoywnjbenv5nsf9b"],
     buyUrl: "https://crochetmakerr.gumroad.com/l/twins",
   },
+  {
+    id: "top10",
+    title: "Moonchild Halter Top Crochet Pattern PDF English and Spanish",
+    description: "Create your own elegant Moonchild Halter Top with this beautifully illustrated crochet pattern.",
+    author: "crochet art",
+    patternText:`
+<article class="w-full max-w-none bg-[#faf5f0] px-4 py-10 text-[#57413b] md:px-10"><div class="mx-auto w-full max-w-4xl space-y-6 text-left md:text-center"><header class="rounded-3xl bg-[#f3e1dc] p-8"><p class="text-sm font-semibold uppercase tracking-widest text-[#ad6a73]">Summer Crochet Collection</p><h1 class="mt-3 text-3xl font-bold md:text-5xl">Moonchild Halter Top</h1><p class="mt-3 text-lg">Elegant Lace Crochet Pattern</p></header><section class="rounded-2xl bg-white p-6 shadow-sm"><h2 class="mb-3 text-xl font-bold text-[#a66270]">About the Pattern</h2><p class="leading-relaxed">Create a beautiful bohemian halter top featuring delicate lace edging, shaped crochet cups, an adjustable underbust band, wooden buttons and decorative beads. This handmade design is perfect for warm weather and customizable to your preferred fit.</p></section><section class="rounded-2xl bg-[#f5e6df] p-6"><h2 class="mb-3 text-xl font-bold text-[#a66270]">Materials</h2><p>DK weight yarn in your preferred color, approximately 100 to 200 grams depending on size.</p><p class="mt-2">3.5 mm crochet hook, yarn needle, four wooden buttons and six decorative wooden beads.</p></section><section class="rounded-2xl bg-white p-6 shadow-sm"><h2 class="mb-3 text-xl font-bold text-[#a66270]">Sizing</h2><p>Sizes S, M, L, XL, XXL and XXXL are covered with adjustable measurements. Measure carefully before starting to customize the cups and underbust band.</p></section><section class="rounded-2xl bg-[#f5e6df] p-6"><h2 class="mb-3 text-xl font-bold text-[#a66270]">Crochet Techniques</h2><p>Chain stitches, single crochet, half double crochet, double crochet, back loop stitches, shaping, lace edging and finishing techniques.</p></section><section class="rounded-2xl bg-white p-6 shadow-sm"><h2 class="mb-3 text-xl font-bold text-[#a66270]">Construction Overview</h2><p class="leading-relaxed">Begin by creating two shaped crochet cups, adjusting each cup to your measurements. Join the cups through the underbust section and work decorative openwork rows to create the band. Add lace edging around the top, prepare adjustable twisted straps and complete the design with wooden beads and buttons. An optional front drawstring allows additional adjustment.</p></section><footer class="rounded-3xl bg-[#e9d5cc] p-8 text-center"><h2 class="text-2xl font-bold text-[#78544c]">Moonchild Halter Top</h2><p class="mt-3">A timeless handmade crochet project with delicate details and a beautiful boho finish.</p></footer></div></article>
+`, 
+    date: "2021-12-16",
+    difficulty: "Beginner",
+    category: "animals",
+    mainImg: "https://public-files.gumroad.com/d515xaq4x4qeg7osfaydh9bszxiv",
+    otherImgs: ["https://public-files.gumroad.com/d515xaq4x4qeg7osfaydh9bszxiv","https://public-files.gumroad.com/dh9c4v6jdibtu1mrmpedsay54ryn"],
+    buyUrl: "https://crochetmakerr.gumroad.com/l/top10",
+  },
 ]
