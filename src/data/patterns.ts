@@ -1046,7 +1046,7 @@ export const samplePatterns: CrochetPattern[] = [
   },
   {
     id: "santawind",
-    title: "Christmas Santa Wind Spinner Crochet Pattern PDF in English and Spanish",
+    title: "Christmas  Santa Wind Spinner Crochet Pattern PDF in English and Spanish",
     description: "The design features a beautiful three color spiral, a Santa head with a white hat brim, and a red ornament decorated with a black belt and yellow buckle.",
     author: "crochet art",
     patternText:`
