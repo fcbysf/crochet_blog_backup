@@ -1,12 +1,5 @@
 export const adUnits = [
   {
-    id: 'social-bar',
-    type: 'social-bar',
-    scriptSrc: 'https://bauval.org/14/3fc02f5bf8294cfc5733682c4246793f',
-    attributes: { 'data-cfasync': 'false' },
-    isSocialBar: true,
-  },
-  {
     id: 'container-banner',
     type: 'container-banner',
     scriptSrc: 'https://bauval.org/21/80ce3711da2ff4b5133a447334b62f1a',

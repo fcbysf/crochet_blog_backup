@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import { adUnits } from "./ad-units";
 
 const INJECTION_ORDER = [
-  'social-bar',
   'container-banner',
   'banner-320x50',
   'rect-300x250',
@@ -91,9 +90,7 @@ export function AdInjector() {
         const visibleWrappers = Array.from(
           document.querySelectorAll<HTMLElement>(`div[data-unit-id="${unitId}"]`)
         ).filter((candidate) => candidate.getClientRects().length > 0);
-        const wrappers = unit.isSocialBar
-          ? visibleWrappers.slice(0, 1)
-          : visibleWrappers;
+        const wrappers = visibleWrappers;
         // Unit not placed on this page (pages embed a subset of the units).
         if (wrappers.length === 0) continue;
 
@@ -110,19 +107,6 @@ export function AdInjector() {
           }
 
           try {
-            if (unit.isSocialBar) {
-              // Social Bar: Adsterra's own script; append to wrapper.
-              const scr = document.createElement('script');
-              scr.async = false;
-              scr.setAttribute('data-cfasync', 'false');
-              scr.src = unit.scriptSrc!;
-              scr.addEventListener('error', () => reportAdScriptError(scr.src));
-              wrapper.appendChild(scr);
-              // Social Bar self-initialises; mark loaded.
-              wrapper.setAttribute('data-loaded', 'true');
-              continue;
-            }
-
             if (unit.containerId) {
               // Official Adsterra snippet order: the container div must exist
               // first, then the loader script (async), so create it before loading.

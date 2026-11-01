@@ -7,5 +7,4 @@
   - paragraph [ref=e11]: Some pattern instructions text here.
   - generic [ref=e13]: SLOT mid (300x250 unit4)
   - generic [ref=e15]: SLOT sidebar (160x300 unit5)
-  - generic [ref=e17]: SLOT bottom (468? no - social bar unit1 + nothing else)
   - contentinfo [ref=e18]: FOOTER END

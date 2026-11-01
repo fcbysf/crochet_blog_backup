@@ -86,9 +86,6 @@ function PatternDetailContent() {
           All patterns
         </Link>
 
-        {/* Social Bar (Adsterra unit 1) – sticky, page-level ad */}
-        <div data-unit-id="social-bar" className="sticky top-0 z-40"></div>
-
         {/* Hero: main image left, details + related images right */}
         <section className="mb-14 grid w-full min-w-0 gap-8 lg:grid-cols-2 lg:items-stretch">
           <button
