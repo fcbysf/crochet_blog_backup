@@ -2,156 +2,163 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { adUnits } from "./ad-units";
 
-const SANDBOX_PERMISSIONS = [
-  "allow-scripts",
-  "allow-popups",
-  "allow-popups-to-escape-sandbox",
-  "allow-top-navigation-by-user-activation",
+const INJECTION_ORDER = [
+  'container-banner',
+  'banner-320x50',
+  'rect-300x250',
+  'skyscraper-160x300',
+  'leader-468x60',
+  'leader-728x90',
 ];
+const AD_SCRIPT_TIMEOUT_MS = 15000;
 
-function escapeHtmlAttribute(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
+function reportAdScriptError(src: string) {
+  window.dispatchEvent(
+    new CustomEvent('ad-resource-error', { detail: { src } })
+  );
 }
 
-function buildAdDocument(unit: (typeof adUnits)[number]) {
-  const container = unit.containerId
-    ? `<div id="${escapeHtmlAttribute(unit.containerId)}"></div>`
-    : "";
-  const atOptions = unit.atOptions
-    ? `<script>window.atOptions = ${JSON.stringify(unit.atOptions).replaceAll("<", "\\u003c")};</script>`
-    : "";
-  const attributes = Object.entries(unit.attributes ?? {})
-    .map(([name, value]) => `${name}="${escapeHtmlAttribute(value)}"`)
-    .join(" ");
-  const asyncAttribute = unit.async ? "async" : "";
-  const scriptCallbacks =
-    ` onload="parent.postMessage({type:'ad-script-loaded'}, '*')"` +
-    ` onerror="parent.postMessage({type:'ad-script-error'}, '*')"`;
-
-  return `<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      html, body { box-sizing: border-box; margin: 0; width: 100%; min-height: 100%; overflow: hidden; }
-      body { display: flex; justify-content: center; align-items: flex-start; }
-      #ad-slot { display: flex; justify-content: center; width: 100%; min-height: ${unit.height}px; }
-      #ad-slot iframe { max-width: 100%; }
-    </style>
-  </head>
-  <body>
-    <div id="ad-slot">${container}</div>
-    ${atOptions}
-    <script src="${escapeHtmlAttribute(unit.scriptSrc)}" ${asyncAttribute} ${attributes}${scriptCallbacks}></script>
-  </body>
-</html>`;
+// Sets window.atOptions inline by injecting a <script> tag into the wrapper.
+// The script runs synchronously when appended; we keep it in the DOM.
+function setAtOptionsInline(code: string, container: HTMLElement) {
+  const s = document.createElement('script');
+  s.text = code;
+  container.appendChild(s);
+  // inline script executes immediately; we retain the node so React doesn't remove it.
 }
 
-function addAdFrame(wrapper: HTMLElement, unit: (typeof adUnits)[number]) {
-  const frame = document.createElement("iframe");
-  frame.dataset.adUnitFrame = unit.id;
-  frame.title = `Advertisement: ${unit.id}`;
-  frame.name = `ad-unit-${unit.id}`;
-  frame.setAttribute("sandbox", SANDBOX_PERMISSIONS.join(" "));
-  frame.style.display = "block";
-  frame.style.width = "100%";
-  frame.style.maxWidth = unit.width ? `${unit.width}px` : "100%";
-  frame.style.height = `${unit.height}px`;
-  frame.style.border = "0";
-  frame.style.marginInline = "auto";
+// Loads an external script (the Adsterra loader) and waits for its 'load'
+// event (or timeout), and resolves.
+// By default loads synchronously (async=false); pass async=true for units
+// whose official snippet uses <script async>.
+// The script is appended to `container` so it stays scoped to the ad slot.
+async function waitForExternalScript(
+  src: string,
+  container: HTMLElement,
+  timeoutMs = 5000,
+  isAsync = false,
+  attributes?: Record<string, string>
+): Promise<boolean> {
+  return new Promise<boolean>((resolve) => {
+    const timeout = setTimeout(() => {
+      // cleanup and resolve false on timeout
+      const existing = container.querySelector('script[src="' + src + '"]');
+      if (existing) container.removeChild(existing);
+      reportAdScriptError(src);
+      resolve(false);
+    }, timeoutMs);
 
-  let loadCount = 0;
-  frame.addEventListener("load", () => {
-    loadCount += 1;
-
-    if (import.meta.env.DEV) {
-      console.debug(
-        `[ads] "${unit.id}" sandbox frame ${loadCount === 1 ? "loaded" : "navigated or reloaded"}`
-      );
-    }
-  });
-
-  frame.srcdoc = buildAdDocument(unit);
-  wrapper.appendChild(frame);
-
-  if (import.meta.env.DEV) {
-    console.info(`[ads] initialized sandboxed unit "${unit.id}"`, {
-      scriptHost: new URL(unit.scriptSrc).hostname,
-      sandbox: SANDBOX_PERMISSIONS,
+    const scr = document.createElement('script');
+    scr.async = isAsync;
+    Object.entries(attributes ?? {}).forEach(([name, value]) => {
+      scr.setAttribute(name, value);
     });
-  }
+    scr.src = src;
+    scr.addEventListener('load', () => {
+      clearTimeout(timeout);
+      // keep the script node; React will reconcile it
+      resolve(true);
+    });
+    scr.addEventListener('error', () => {
+      clearTimeout(timeout);
+      reportAdScriptError(src);
+      container.removeChild(scr);
+      resolve(false);
+    });
+    container.appendChild(scr);
+  });
 }
 
 export function AdInjector() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const handleAdMessage = (event: MessageEvent<unknown>) => {
-      if (
-        typeof event.data !== "object" ||
-        event.data === null ||
-        !("type" in event.data) ||
-        typeof event.data.type !== "string"
-      ) {
-        return;
-      }
+    // Set when this page unmounts (client-side navigation or StrictMode
+    // re-run) so an in-flight loop stops instead of injecting into another
+    // page's wrappers. In StrictMode the remounted effect starts a fresh
+    // loop; the per-wrapper script[src] guard below prevents duplicates.
+    let cancelled = false;
 
-      const frame = Array.from(
-        document.querySelectorAll<HTMLIFrameElement>("iframe[data-ad-unit-frame]")
-      ).find((candidate) => candidate.contentWindow === event.source);
-      const unitId = frame?.dataset.adUnitFrame;
-      if (!frame || !unitId) return;
+    (async () => {
+      for (const unitId of INJECTION_ORDER) {
+        if (cancelled) return;
 
-      if (event.data.type === "ad-script-loaded") {
-        frame.closest<HTMLElement>("[data-unit-id]")?.setAttribute("data-loaded", "true");
-        if (import.meta.env.DEV) {
-          console.debug(`[ads] provider script loaded for "${unitId}"`);
-        }
-      } else if (event.data.type === "ad-script-error") {
-        const unit = adUnits.find((candidate) => candidate.id === unitId);
-        if (unit) {
-          window.dispatchEvent(
-            new CustomEvent("ad-resource-error", {
-              detail: { src: unit.scriptSrc },
-            })
-          );
-        }
-        if (import.meta.env.DEV) {
-          console.error(`[ads] provider script failed to load for "${unitId}"`);
-        }
-      }
-    };
+        const unit = adUnits.find((u) => u.id === unitId);
+        if (!unit) continue;
 
-    window.addEventListener("message", handleAdMessage);
-
-    const injectAds = () => {
-      for (const unit of adUnits) {
-        const wrappers = Array.from(
-          document.querySelectorAll<HTMLElement>(`[data-unit-id="${unit.id}"]`)
-        ).filter((wrapper) => wrapper.getClientRects().length > 0);
+        // Find the wrapper div that already exists in the current page DOM.
+        const visibleWrappers = Array.from(
+          document.querySelectorAll<HTMLElement>(`div[data-unit-id="${unitId}"]`)
+        ).filter((candidate) => candidate.getClientRects().length > 0);
+        const wrappers = visibleWrappers;
+        // Unit not placed on this page (pages embed a subset of the units).
+        if (wrappers.length === 0) continue;
 
         for (const wrapper of wrappers) {
-          if (wrapper.querySelector("iframe[data-ad-unit-frame]")) {
+          if (cancelled) return;
+
+          // Duplicate-init guard: never append this unit's loader script twice
+          // into the same wrapper (StrictMode / navigation edge cases).
+          if (
+            unit.scriptSrc &&
+            wrapper.querySelector(`script[src="${unit.scriptSrc}"]`)
+          ) {
             continue;
           }
 
-          addAdFrame(wrapper, unit);
+          try {
+            if (unit.containerId) {
+              // Official Adsterra snippet order: the container div must exist
+              // first, then the loader script (async), so create it before loading.
+              let containerDiv = wrapper.querySelector(
+                `#${unit.containerId}`
+              ) as HTMLDivElement | null;
+              if (!containerDiv) {
+                containerDiv = document.createElement('div');
+                containerDiv.id = unit.containerId;
+                containerDiv.style.width = '100%';
+                containerDiv.style.height = '250px';
+                wrapper.appendChild(containerDiv);
+              }
+
+              const success = await waitForExternalScript(
+                unit.scriptSrc!,
+                wrapper,
+                AD_SCRIPT_TIMEOUT_MS,
+                true,
+                unit.attributes
+              );
+              if (success) {
+                wrapper.setAttribute('data-loaded', 'true');
+              }
+              continue;
+            }
+
+            // Units with atOptions: set atOptions inline first, then load external script.
+            setAtOptionsInline(unit.inlineCode!, wrapper);
+
+            const success = await waitForExternalScript(
+              unit.scriptSrc!,
+              wrapper,
+              AD_SCRIPT_TIMEOUT_MS,
+              false,
+              unit.attributes
+            );
+            if (success) {
+              wrapper.setAttribute('data-loaded', 'true');
+            }
+          } catch (e) {
+            console.error(
+              `AdInjector: unit "${unitId}" injection failed`,
+              e
+            );
+          }
         }
       }
-    };
-
-    injectAds();
-    const observer = new MutationObserver(injectAds);
-    observer.observe(document.body, { childList: true, subtree: true });
+    })();
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener("message", handleAdMessage);
+      cancelled = true;
     };
   }, [pathname]);
 
