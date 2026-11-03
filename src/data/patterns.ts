@@ -1406,4 +1406,19 @@ be`,
     otherImgs: ["https://public-files.gumroad.com/d6hrbpnkj9zpzqjz5ydw32iqm7eq","https://public-files.gumroad.com/5oxhi9elf2l0wpqig3pqvbcfv315"],
     buyUrl: "https://crochetmakerr.gumroad.com/l/7patterns",
   },
+  {
+    id: "angelskeys",
+    title: "Christmas Angel Crochet PDF Pattern - Mini Amigurumi Ornament",
+    description: "Create your own adorable Christmas Angel with this beginner-friendly crochet PDF pattern. Featuring delicate white wings, a golden halo, tiny praying hands, and a beautiful flared dress, this miniature angel is perfect for Christmas decorations, handmade gifts, and festive ornaments. Customize your angel with lovely pastel colors.",
+    author: "crochet art",
+    patternText:`
+<article class="w-full max-w-none mx-auto bg-amber-50 text-stone-800 font-sans p-4 sm:p-6"><div class="w-full lg:max-w-4xl mx-auto"><header class="bg-gradient-to-r from-purple-500 to-sky-500 text-white text-center rounded-2xl p-6 mb-4"><h1 class="text-3xl font-bold mb-2">Christmas Angel Crochet Pattern</h1><p class="text-sm">Mini Amigurumi Angel Ornament • Beginner Friendly</p></header><section class="bg-white rounded-xl p-5 mb-4"><h2 class="text-xl font-bold text-purple-700 mb-3">About This Pattern</h2><p class="leading-7">Create adorable handmade Christmas angel ornaments featuring a soft rounded head, delicate white wings, a golden halo, tiny praying hands, and a beautiful flared dress. These miniature crochet angels make lovely Christmas decorations, thoughtful gifts, and festive keepsakes.</p></section><section class="bg-white rounded-xl p-5 mb-4"><h2 class="text-xl font-bold text-purple-700 mb-3">Materials Needed</h2><p class="leading-7">4-ply milk cotton yarn in cream white, flesh pink, yellow, white, and your preferred dress color; 2.5 mm crochet hook, polyester fiberfill, tapestry needle, scissors, and hot glue gun with glue sticks.</p></section><section class="bg-white rounded-xl p-5 mb-4"><h2 class="text-xl font-bold text-purple-700 mb-3">Color Options</h2><div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center"><div class="bg-sky-100 rounded-xl p-3"><div class="w-10 h-10 rounded-full bg-sky-300 mx-auto mb-2"></div><p class="font-semibold text-sm">Sky Blue</p></div><div class="bg-purple-100 rounded-xl p-3"><div class="w-10 h-10 rounded-full bg-purple-300 mx-auto mb-2"></div><p class="font-semibold text-sm">Lavender</p></div><div class="bg-pink-100 rounded-xl p-3"><div class="w-10 h-10 rounded-full bg-pink-300 mx-auto mb-2"></div><p class="font-semibold text-sm">Soft Pink</p></div><div class="bg-emerald-50 rounded-xl p-3"><div class="w-10 h-10 rounded-full bg-emerald-200 mx-auto mb-2"></div><p class="font-semibold text-sm">Mint Green</p></div></div></section><section class="bg-white rounded-xl p-5 mb-4"><h2 class="text-xl font-bold text-purple-700 mb-3">What's Inside the PDF</h2><p class="leading-7">A 4-page digital crochet guide featuring step-by-step instructions for the angel's head, flared dress, wings, golden halo, and tiny hands. Includes materials, crochet abbreviations, instructional photos, color variations, and a final assembly guide in English and Spanish.</p></section><footer class="bg-gradient-to-r from-purple-600 to-sky-600 text-white text-center rounded-xl p-5"><h2 class="text-xl font-bold mb-2">Create Your Own Christmas Angels</h2><p class="text-sm text-white/90">A charming handmade decoration for the holiday season.</p></footer></div></article>
+    `,
+    date: "2024-12-16",
+    difficulty: "Beginner",
+    category: "keychains",
+    mainImg: "https://public-files.gumroad.com/2ttykou6ela3dcs6t6ehjugqbdon",
+    otherImgs: ["https://public-files.gumroad.com/2ttykou6ela3dcs6t6ehjugqbdon"],
+    buyUrl: "https://crochetmakerr.gumroad.com/l/angelskeys",
+  },
 ]
