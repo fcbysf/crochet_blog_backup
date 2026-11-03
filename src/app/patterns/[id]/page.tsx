@@ -1,6 +1,6 @@
 import { Suspense, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, Download, Heart, X } from "lucide-react";
+import { AlertTriangle, ArrowLeft, Download, Heart, X } from "lucide-react";
 import { usePatterns } from "@/context/PatternsContext";
 import { PatternCard } from "@/components/PatternCard";
 
@@ -199,9 +199,11 @@ function PatternDetailContent() {
         {/* Support me */}
         <div className="flex justify-center" >
 
-          <div data-unit-id="rect-300x250" className="mb-6"></div>
         </div>
-        <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
+          <h1 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-zinc-100 text-center flex items-center justify-center gap-2">
+            <AlertTriangle className="text-center h-25 w-25" /> for clear instructions and more visual guidance and images get the PDF pattern version
+          </h1>
+        <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center mb-10">
 
           {pattern.buyUrl && (
             <a
@@ -227,6 +229,7 @@ function PatternDetailContent() {
 
         </div>
         <div className="flex justify-center">
+          <div data-unit-id="rect-300x250" className="mb-6"></div>
 
           <div data-unit-id="skyscraper-160x300" className=" sm:block  my-3"></div>
         </div>
