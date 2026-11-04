@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { adUnits } from "./ad-units";
+import { adUnits, socialBar } from "./ad-units";
 
 const INJECTION_ORDER = [
   'container-banner',
@@ -71,6 +71,18 @@ async function waitForExternalScript(
 
 export function AdInjector() {
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (document.querySelector(`script[src="${socialBar.scriptSrc}"]`)) return;
+
+    void waitForExternalScript(
+      socialBar.scriptSrc,
+      document.body,
+      AD_SCRIPT_TIMEOUT_MS,
+      false,
+      socialBar.attributes
+    );
+  }, [pathname]);
 
   useEffect(() => {
     // Set when this page unmounts (client-side navigation or StrictMode

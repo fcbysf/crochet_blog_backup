@@ -1,3 +1,8 @@
+export const socialBar = {
+  scriptSrc: 'https://bauval.org/14/3fc02f5bf8294cfc5733682c4246793f',
+  attributes: { 'data-cfasync': 'false' },
+};
+
 export const adUnits = [
   {
     id: 'container-banner',
